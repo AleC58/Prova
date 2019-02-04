@@ -14,31 +14,34 @@ import javax.ws.rs.Consumes;
  *
  * @author mkuchtiak
  */
-
 @Stateless
 @Path("/greeting")
 public class HelloWorldResource {
 
-    @EJB
-    private NameStorageBean nameStorage;
-    /**
-     * Retrieves representation of an instance of helloworld.HelloWorldResource
-     * @return an instance of java.lang.String
-     */
-    @GET
-    @Produces("text/html")
-    public String getGreeting() {
-        return "<html><body><h1>Hello "+nameStorage.getName()+"!</h1></body></html>";
-    }
+	@EJB
+	private NameStorageBean nameStorage;
 
-    /**
-     * PUT method for updating an instance of HelloWorldResource
-     * @param content representation for the resource
-     * @return an HTTP response with content of the updated or created resource.
-     */
-    @PUT
-    @Consumes("text/plain")
-    public void setName(String content) {
-        nameStorage.setName(content);
-    }
+	/**
+	 * Retrieves representation of an instance of helloworld.HelloWorldResource
+	 *
+	 * @return an instance of java.lang.String
+	 */
+	@GET
+	@Path("/ciao")
+	@Produces("text/html")
+	public String getGreeting() {
+		return "<html><body><h1>Hello " + nameStorage.getName() + "!</h1></body></html>";
+	}
+
+	/**
+	 * PUT method for updating an instance of HelloWorldResource
+	 *
+	 * @param content representation for the resource
+	 * @return an HTTP response with content of the updated or created resource.
+	 */
+	@PUT
+	@Consumes("text/plain")
+	public void setName(String content) {
+		nameStorage.setName(content);
+	}
 }

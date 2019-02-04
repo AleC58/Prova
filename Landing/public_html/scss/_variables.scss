@@ -1,0 +1,39 @@
+$bianco: #FFFFFF;
+$giallo: #FDB962;
+$rosso: #701E1F;
+$rossoChiaro: #782B2C;
+
+$Playfair : "Playfair";
+$Lato : "Lato";
+
+$mainFont: $Lato, "Arial";
+$secondFont: $Playfair, "Arial";
+
+
+$titles : "h1,h2,h3,h4,h5,h6,p";
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin opacity-panel($opacity,$color:black) {
+
+    &::after{
+        content:'';
+        display:block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: $color;
+        top:0;
+        left: 0;
+        opacity: $opacity;
+    }
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: $mainFont;
+}

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,GAAG;EACF,KAAK,EAAC,IAAI;EACV,MAAM,EAAE,IAAI;EAEZ,OAAK;IACJ,gBAAgB,EAAC,GAAG;EAGrB,QAAM;IACL,gBAAgB,EAAC,IAAI",
+"sources": ["../scss/prova.scss"],
+"names": [],
+"file": "prova.css"
+}

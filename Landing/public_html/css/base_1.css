@@ -1,0 +1,258 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10-lug-2018, 16.50.37
+    Author     : Marco
+*/
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18-mag-2018, 17.07.20
+    Author     : Marco
+*/
+html,
+body,
+ul,
+ol,
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0;
+  padding: 0; }
+
+* {
+  box-sizing: border-box; }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18-mag-2018, 17.10.51
+    Author     : Marco
+*/
+@font-face {
+  font-family: "Playfair";
+  font-weight: 400;
+  src: url("../fonts/Playfair/PlayfairDisplay-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "Playfair";
+  font-weight: 400;
+  font-style: italic;
+  src: url("../fonts/Playfair/PlayfairDisplay-Italic.ttf") format("truetype"); }
+@font-face {
+  font-family: "Playfair";
+  font-weight: 700;
+  src: url("../fonts/Playfair/PlayfairDisplay-Bold.ttf") format("truetype"); }
+@font-face {
+  font-family: "Playfair";
+  font-weight: 900;
+  src: url("../fonts/Playfair/PlayfairDisplay-Black.ttf") format("truetype"); }
+@font-face {
+  font-family: "Lato";
+  font-weight: 100;
+  src: url("../fonts/Lato/Lato-Hairline.ttf") format("truetype"); }
+@font-face {
+  font-family: "Lato";
+  font-weight: 300;
+  src: url("../fonts/Lato/Lato-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "Lato";
+  font-weight: 400;
+  src: url("../fonts/Lato/Lato-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "Lato";
+  font-weight: 700;
+  src: url("../fonts/Lato/Lato-Bold.ttf") format("truetype"); }
+@font-face {
+  font-family: "Lato";
+  font-weight: 900;
+  src: url("../fonts/Lato/Lato-Black.ttf") format("truetype"); }
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", "Arial"; }
+
+html {
+  font-size: 15px; }
+
+img {
+  max-width: 100%;
+  height: 100%; }
+
+.header {
+  height: 3rem;
+  width: 100%;
+  padding: 0.5rem 10vw;
+  display: flex;
+  justify-content: space-between; }
+  .header .logo {
+    height: 80%;
+    display: inline-block; }
+  .header .menu {
+    display: inline-block;
+    height: 100%; }
+
+h1 {
+  font-size: 4rem;
+  font-weight: 900; }
+  h1 span {
+    font-size: 0.5em;
+    font-weight: 500; }
+
+p {
+  display: inline-block;
+  font-family: "Lato", "Arial";
+  font-size: 1rem;
+  line-height: 1.6em;
+  letter-spacing: 1px; }
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 800; }
+  h3 span {
+    font-size: 0.7em;
+    font-weight: 500;
+    display: block; }
+
+h4 {
+  margin-bottom: 0.5em;
+  display: inline-block;
+  color: white;
+  background-color: black;
+  padding: 0.2em 1em; }
+
+a.button {
+  background-color: white;
+  color: black;
+  border-radius: 2rem;
+  padding: 1em 3em;
+  text-decoration: none;
+  font-family: "Lato", "Arial";
+  font-weight: 500;
+  display: inline-block;
+  width: auto; }
+  a.button:hover {
+    background-color: gainsboro;
+    font-weight: 900; }
+
+.image.cover {
+  height: 100%;
+  width: 100%;
+  position: relative; }
+  .image.cover img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+
+.section.land {
+  background-image: url(../image/home-bg.jpg);
+  background-size: cover;
+  color: white;
+  height: auto;
+  position: relative; }
+  .section.land::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    top: 0;
+    left: 0;
+    opacity: 0.5; }
+  .section.land .col {
+    min-height: 90vh;
+    z-index: 1;
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4em; }
+    .section.land .col h1 {
+      margin-top: 0.2em; }
+    .section.land .col h2 {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 1.1rem; }
+    .section.land .col p {
+      margin-left: 1em;
+      width: 100%;
+      max-width: 500px; }
+  .section.land .col.right {
+    text-align: right;
+    align-items: flex-end; }
+
+.section.dates {
+  display: flex;
+  padding: 5vh 10vw;
+  background-color: black; }
+  .section.dates .date {
+    background-color: white;
+    border-radius: 1rem;
+    margin: 0 1rem;
+    padding: 4em 4em; }
+    .section.dates .date.new {
+      position: relative; }
+      .section.dates .date.new::after {
+        content: '';
+        display: block;
+        height: 3rem;
+        width: 3rem;
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        background-image: url("../image/new.png");
+        background-size: contain; }
+
+.section.text {
+  margin-bottom: 10vh; }
+  .section.text .text {
+    padding: 5vh 4rem;
+    min-height: 50vh; }
+    .section.text .text p {
+      width: 100%;
+      max-width: 540px; }
+
+.section.text.left .text {
+  text-align: right; }
+
+.row {
+  display: flex;
+  height: 100%; }
+  .row .col-1 {
+    width: 8.3333333333%; }
+  .row .col-2 {
+    width: 16.6666666667%; }
+  .row .col-3 {
+    width: 25%; }
+  .row .col-4 {
+    width: 33.3333333333%; }
+  .row .col-5 {
+    width: 41.6666666667%; }
+  .row .col-6 {
+    width: 50%; }
+  .row .col-7 {
+    width: 58.3333333333%; }
+  .row .col-8 {
+    width: 66.6666666667%; }
+  .row .col-9 {
+    width: 75%; }
+  .row .col-10 {
+    width: 83.3333333333%; }
+  .row .col-11 {
+    width: 91.6666666667%; }
+  .row .col-12 {
+    width: 100%; }
+
+.footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10vh 0 20vh; }
+
+/*# sourceMappingURL=base_1.css.map */
