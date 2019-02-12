@@ -30,6 +30,7 @@ public class Controller {
 	@RequestMapping(value = "/ciaojson", produces = {"application/JSON"})
 	@ResponseBody
 	public String getCiaoJson() {
-		return "{\"eta\": 32, \"citta\": \"Livorno\", \"sesso\": \"M\"}";
+		//return "{\"eta\": 32, \"citta\": \"Livorno\", \"sesso\": \"M\"}";
+		return "{\"key\": \"value11\"}";
 	}
 }
