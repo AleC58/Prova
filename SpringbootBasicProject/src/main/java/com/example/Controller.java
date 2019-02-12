@@ -14,7 +14,7 @@ public class Controller {
 
 	@RequestMapping("/")
 	public String index() {
-		return "Congratulations from BlogController.java! 333";
+		return "Congratulations from BlogController.java!";
 	}
 
 	@RequestMapping("/ciao")
