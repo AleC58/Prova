@@ -1,4 +1,3 @@
 # Prova
-prova
 
-Directory contenente prove di vario tipo, anche non funzionanti
+Repository contenente prove di vario tipo, anche non funzionanti
