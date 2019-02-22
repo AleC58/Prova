@@ -95,20 +95,4 @@ public class MioController {
 		return ris;
 	}
 
-	/**
-	 * Che fermate fa una data route? GET /routes/{route_id}/stops
-	 */
-	@RequestMapping(value = "/routes/{route_id}/stops", produces = {"application/JSON"})
-	@ResponseBody
-	public ArrayList<Integer> getStops(@PathVariable("route_id") int route_id) {
-		ArrayList<Integer> ris = new ArrayList<>();
-
-		// abbiamo un metodo che interroga il database
-		ris.add(1045);
-		ris.add(1046);
-		ris.add(1047);
-
-		return ris;
-	}
-
 }
