@@ -22,23 +22,23 @@ function getRisposta() {
 	var giorno = datiForm[0].value;
 
 	$.ajax({
-		url: "http://localhost:8081/cal/" + giorno,
+		url: "http://localhost:8080/cal",
 		type: "GET",
 		data: {},
-		//dataType: "jsonp",
-		//contentType: "application/json",
+		dataType: "jsonp",
+		contentType: "application/json",
 		success: function (result) {
 			risposta.html(result);
 			alert("Ris: " + result);
 		},
 		error: function (richiesta, stato, errori) {
 			risposta.html("<strong>Chiamata fallita:</strong>" + stato + " " + errori);
-			alert("Ajax call error:\nStato: " + stato + "\nErrore: " + errori);
+			alert("Stato: " + stato + "\nErrore: " + errori);
 		},
 		complete: function (XMLHTTPRequest, settings) {
 			alert("Complete");
 		}
 	});
 
-	alert("Dopo chiamata Ajax - datiForm[0].value: " + datiForm[0].value);
+	alert(datiForm[0].value);
 }
