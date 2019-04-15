@@ -1,0 +1,5 @@
+-schema
+http://ergast.com/schemas/f1db_schema.txt
+
+- API
+http://ergast.com/mrd/db/#csv
