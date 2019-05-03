@@ -8,12 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 
  * Progetto Maven per Spring Boot
  * Dipendenze selezionate: web, dev toole, jdbc
- * Dipendenze aggiunte manualmente nel pom: sqlite
+ * Dipendenze aggiunte manualmente nel pom: sqlite, javacsv
  * 
  * Creata la dir. "dati_csv" con i file csv all'interno di src\main\resources
  * 
  * In application.properties aggiunto:
- * - parametri di connessione al db
+ * - parametri di connessione al db (NB: DEVE essere su disco locale e senza protezioni o percorsi "strani" -> OK su D:\zz,;  NO "Documenti" o dischi di rete)
  * - porta server Tomcat
  * 
  */
