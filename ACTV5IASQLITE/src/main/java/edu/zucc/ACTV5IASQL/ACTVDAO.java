@@ -48,11 +48,6 @@ public class ACTVDAO {
 		List<Calendar> app = this.jdbcTemplate.query(sql, rowMapper);
 		return this.jdbcTemplate.query(sql, rowMapper);
 	}	
-	
-	
-
-
-
 
 	
 //	public List<Integer> getAllRouteId(int stopId) {
