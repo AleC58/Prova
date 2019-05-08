@@ -25,13 +25,14 @@ public class MainController {
 	@RequestMapping(value = "/costruttori", produces = {"application/JSON"})
 	@ResponseBody
 	public List<Costruttore> getCal() {
-		return F1DAO. .getAllCalendar();
+		return null;
 	}
 
-	@RequestMapping(value = "/cal/{id}", method = GET, produces = {"application/JSON"})
+	@RequestMapping(value = "/costruttori/{id}", method = GET, produces = {"application/JSON"})
 	@ResponseBody
-	public List<Calendar> getAllCalendarForADay(@PathVariable int id) {
-		return actvdao.getAllCalendarForADay(id);
+	public List<Costruttore> getAllCalendarForADay(@PathVariable int id) {
+		//return actvdao.getAllCalendarForADay(id);
+		return null;
 	}
 
 }

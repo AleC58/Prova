@@ -9,6 +9,7 @@ import java.util.Objects;
  * @author alex.cazziolato
  */
 public class Pilota {
+	private long idPilota;
 	private String cognomePilota;
 	private String nomePilota;
 	private String nazionalita;
@@ -17,19 +18,29 @@ public class Pilota {
 	public Pilota() {
 	}
 
-	public Pilota(String cognomePilota, String nomePilota, String nazionalita, LocalDate dataNascita) {
+	public Pilota(long idPilota, String cognomePilota, String nomePilota, String nazionalita, LocalDate dataNascita) {
+		this.idPilota = idPilota;
 		this.cognomePilota = cognomePilota;
 		this.nomePilota = nomePilota;
 		this.nazionalita = nazionalita;
 		this.dataNascita = dataNascita;
 	}
 
-	public Pilota(String cognomePilota, String nomePilota, String nazionalita, String dataNascita) {
+	public Pilota(long idPilota, String cognomePilota, String nomePilota, String nazionalita, String dataNascita) {
+		this.idPilota = idPilota;
 		this.cognomePilota = cognomePilota;
 		this.nomePilota = nomePilota;
 		this.nazionalita = nazionalita;
 		DateTimeFormatter fmtr = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		this.dataNascita = LocalDate.parse(dataNascita, fmtr);
+	}
+
+	public long getIdPilota() {
+		return idPilota;
+	}
+
+	public void setIdPilota(long idPilota) {
+		this.idPilota = idPilota;
 	}
 
 	public String getCognomePilota() {
