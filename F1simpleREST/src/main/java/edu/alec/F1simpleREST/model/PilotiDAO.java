@@ -1,7 +1,6 @@
 package edu.alec.F1simpleREST.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -21,6 +20,29 @@ public class PilotiDAO {
 	private PilotiDAO() {
 		piloti = new ArrayList();
 		popolaPiloti();
+	}
+
+	ArrayList<Pilota> getAll() {
+		return piloti; //To change body of generated methods, choose Tools | Templates.
+	}
+
+	public Pilota get(long idPilota) {
+		for (Pilota p : piloti) {
+			if (p.getIdPilota() == idPilota) {
+				return p;
+			}
+		}
+		return null;
+	}
+
+	public Pilota get(String cognomePilota, String nomePilota) {
+		for (Pilota p : piloti) {
+			if ((p.getCognomePilota().equals(cognomePilota))
+				&& (p.getNomePilota().equals(nomePilota))) {
+				return p;
+			}
+		}
+		return null;
 	}
 
 	private void popolaPiloti() {
@@ -49,10 +71,6 @@ public class PilotiDAO {
 		piloti.add(p10);
 		piloti.add(p11);
 		piloti.add(p12);
-	}
-
-	List<Pilota> getAll() {
-		return piloti; //To change body of generated methods, choose Tools | Templates.
 	}
 
 }
