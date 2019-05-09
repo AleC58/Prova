@@ -23,16 +23,26 @@ public class CostruttoriDAO {
 		popolaCostruttori();
 	}
 
-	public ArrayList<Costruttore> get() {
+	public ArrayList<Costruttore> getAll() {
 		return costruttori;
 	}
 
-	public ArrayList<Costruttore> get(long idCostruttore) {
-		return costruttori;
+	public Costruttore get(long idCostruttore) {
+		for (Costruttore c : costruttori) {
+			if (c.getIdCostruttore() == idCostruttore) {
+				return c;
+			}
+		}
+		return null;
 	}
 
-	public ArrayList<Costruttore> get(String nomeCostruttore) {
-		return costruttori;
+	public Costruttore get(String nomeCostruttore) {
+		for (Costruttore c : costruttori) {
+			if (c.getNomeCostruttore().equals(nomeCostruttore)) {
+				return c;
+			}
+		}
+		return null;
 	}
 
 //	public void set(ArrayList<Costruttore> costruttori) {

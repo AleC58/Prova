@@ -1,6 +1,7 @@
 package edu.alec.F1simpleREST.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -28,7 +29,7 @@ public class PilotiDAO {
 		Pilota p2 = new Pilota(2, "Bottas", "Valtteri", "Finlandia", "1989-09-28");
 		Pilota p3 = new Pilota(3, "Vettel", "Sebastian", "Germania", "1987-07-03");
 		Pilota p4 = new Pilota(4, "Raikkonen", "Kimi", "Finlandia", "1979-10-17");
-		Pilota p5 = new Pilota(5, "Ricciardo", "Daniel", "Australia", "19");
+		Pilota p5 = new Pilota(5, "Ricciardo", "Daniel", "Australia", "1989-07-01");
 		Pilota p6 = new Pilota(6, "Verstappen", "Max", "Olanda", "1997-09-30");
 		Pilota p7 = new Pilota(7, "Hulkenberg", "Nicolas", "Germania", "1987-08-19");
 		Pilota p8 = new Pilota(8, "Sainz jr", "Carlos", "Spagna", "1994-09-01");
@@ -48,6 +49,10 @@ public class PilotiDAO {
 		piloti.add(p10);
 		piloti.add(p11);
 		piloti.add(p12);
+	}
+
+	List<Pilota> getAll() {
+		return piloti; //To change body of generated methods, choose Tools | Templates.
 	}
 
 }

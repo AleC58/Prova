@@ -31,6 +31,7 @@ public class Pilota {
 		this.cognomePilota = cognomePilota;
 		this.nomePilota = nomePilota;
 		this.nazionalita = nazionalita;
+		System.out.println("Pilota: " + cognomePilota + "  Data: " + dataNascita);
 		DateTimeFormatter fmtr = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		this.dataNascita = LocalDate.parse(dataNascita, fmtr);
 	}
