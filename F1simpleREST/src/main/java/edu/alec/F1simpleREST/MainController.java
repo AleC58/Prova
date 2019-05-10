@@ -58,7 +58,6 @@ public class MainController {
 	@RequestMapping(value = "/campionati/{anno}", method = GET, produces = {"application/JSON"})
 	@ResponseBody
 	public List<Campionato> getCampionatoByAnno(@PathVariable int anno) {
-		//return db.getCostruttoreById(anno);
 		return db.getCampionatoByAnno(anno);
 	}
 
