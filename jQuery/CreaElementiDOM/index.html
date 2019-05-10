@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="IT">
+	<head>
+		<title>F1simpleClient</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="jquery-3.3.1.min.js" type="text/javascript"></script>
+		<script src="main.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="pagina">
+			<h1>jQuery: creazione elementi DOM</h1>
+			<!--<div id="div">
+				<h2></h2>
+				<button id="btn"></button>
+				<div id="ris"></div>
+			</div>-->
+			<div id="divTestoDaTextBox">
+				<h2>Paragrafo da TextBox</h2>
+				<label for="txtTestoDaTextBox">Testo: </label>
+				<input type="text" id="txtTestoDaTextBox" value="Scrivere un testo" />
+				<div>
+					<p>Alla pressione di ogni tasto: <span id="risTestoDaTextBoxWithKeyup"></span></p>
+					<p>Alla perdita del focus: <span id="risTestoDaTextBoxWithBlur"></span></p>
+				</div>
+			</div>
+			<div id="divListaDaJson">
+				<h2>Lista non ordinata da array json</h2>
+				<label for="txtArrayJsonPerLista">Testo: </label>
+				<input type="text" id="txtArrayJsonPerLista" value="" />
+				<button id="btnListaDaJson">Lista da array json</button>
+				<div id="risListaDaJson"></div>
+			</div>
+			<div id="divComboBox">
+				<h2>Elenco casella combinata (options della select)</h2>
+				<label for="cboPilotiDelTeam">Team: </label>
+				<select id="cbo">Tabella piloti</select>
+				<div id="risComboBox"></div>
+			</div>
+			<div id="divPilotiDelTeam">
+				<h2>Tabella da array json</h2>
+				<label for="cboPilotiDelTeam">Team: </label>
+				<select id="cboPilotiDelTeam"></select>
+				<div id="risPilotiDelTeam"></div>
+			</div>
+		</div>
+	</body>
+</html>
