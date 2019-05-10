@@ -10,11 +10,6 @@
 	<body>
 		<div id="pagina">
 			<h1>jQuery: creazione elementi DOM</h1>
-			<!--<div id="div">
-				<h2></h2>
-				<button id="btn"></button>
-				<div id="ris"></div>
-			</div>-->
 			<div id="divTestoDaTextBox">
 				<h2>Paragrafo da TextBox</h2>
 				<label for="txtTestoDaTextBox">Testo: </label>
@@ -24,20 +19,25 @@
 					<p>Alla perdita del focus: <span id="risTestoDaTextBoxWithBlur"></span></p>
 				</div>
 			</div>
+
 			<div id="divListaDaJson">
-				<h2>Lista non ordinata da array json</h2>
+				<h2>Lista non ordinata da testo che rappresenta un array json</h2>
 				<label for="txtArrayJsonPerLista">Testo: </label>
-				<input type="text" id="txtArrayJsonPerLista" value="" />
+				<textarea id="txtArrayJsonPerLista" rows="9" cols="160"></textarea>
 				<button id="btnListaDaJson">Lista da array json</button>
 				<div id="risListaDaJson"></div>
 			</div>
+
 			<div id="divComboBox">
 				<h2>Elenco casella combinata (options della select)</h2>
-				<label for="cboPilotiDelTeam">Team: </label>
-				<select id="cbo">Tabella piloti</select>
-				<div id="risComboBox"></div>
+				<label for="cbo">Alpinisti: </label>
+				<select id="cbo"></select>
+				<div>
+					<p>Valore dell'elemento selezionato: <span id="risCboValue"></span></p>
+					<p>Testo dell'elemento selezionato: <span id="risCboText"></span></p>
+				</div>
 			</div>
-			<div id="divPilotiDelTeam">
+			<div id="divTabella">
 				<h2>Tabella da array json</h2>
 				<label for="cboPilotiDelTeam">Team: </label>
 				<select id="cboPilotiDelTeam"></select>

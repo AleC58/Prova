@@ -1,10 +1,10 @@
 "use strict";
 
 var txtTestoDaTextBox, risTestoDaTextBoxWithKeyup, risTestoDaTextBoxWithBlur;
-var qq;
+var txtArrayJsonPerLista, btnListaDaJson, risListaDaJson;
 var alpinisti = [
 	{"id": "1", "nome":"Paul", "cognome":"Preuss", dataNascita:"19 agosto 1886", statoNascita:"Austria"},
-	{"id": "2", "nome":"Hans", "cognome":"Dülfer", dataNascita:" 23 maggio 1892", statoNascita:"Germania"},
+	{"id": "2", "nome":"Hans", "cognome":"Dulfer", dataNascita:" 23 maggio 1892", statoNascita:"Germania"},
 	{"id": "3", "nome":"George Leigh", "cognome":"Mallory", dataNascita:"18 giugno 1886", statoNascita:"Inghilterra"},
 	{"id": "4", "nome":"Emilio", "cognome":"Comici", dataNascita:"21 febbraio 1901", statoNascita:"Italia"},
 	{"id": "5", "nome":"Giusto", "cognome":"Gervasutti", dataNascita:"17 aprile 1909", statoNascita:"Italia"},
@@ -19,12 +19,19 @@ $(document).ready(function () {
 	risTestoDaTextBoxWithKeyup = $("#risTestoDaTextBoxWithKeyup");
 	risTestoDaTextBoxWithBlur = $("#risTestoDaTextBoxWithBlur");
 
+	txtArrayJsonPerLista = $("#txtArrayJsonPerLista");
+	btnListaDaJson = $("#btnListaDaJson");
+	risListaDaJson = $("#risListaDaJson");
+	txtArrayJsonPerLista.val(JSON.stringify(alpinisti)); // stringify -> da json a stringa
+
 	txtTestoDaTextBox.on("keyup", function() { // questa forma permette eventi multipli, separandoli con uno spazio
 		ecoTasti();
 	});
 	txtTestoDaTextBox.focus(); // come autofocus di HTML5 (sende attivo il controllo, che DEVE essere visibile)
 	txtTestoDaTextBox.click(selectTesto); // quando il controllo diventa attivo (ottiene il focus) ...
 	txtTestoDaTextBox.blur(copiaTesto); // quando il controllo perde il focus ...
+
+	btnListaDaJson.click(creaListaDaJson);
 });
 
 function ecoTasti() {
@@ -37,6 +44,41 @@ function selectTesto() {
 
 function copiaTesto() {
 	$("#risTestoDaTextBoxWithBlur").text(txtTestoDaTextBox.val());
+};
+
+function creaListaDaJson() {
+	$("#risListaDaJson").empty();
+	var jsonArray = JSON.parse(txtArrayJsonPerLista.val()); // da stringa a json
+	//var ul = creaULdaJson(jsonArray);
+	var campi = ["nome", "cognome"];
+	var ul = creaULdaJsonConFiltro(campi, jsonArray);
+	$("#risListaDaJson").append(ul);
+};
+
+function creaULdaJson(jsonArray) {
+	var ul = $("<ul>");
+	var valori;
+	for (var j = 0, len = jsonArray.length; j < len; j++) {
+		valori = JSON.stringify(jsonArray[j]);
+		ul.append("<li>" + valori + "</li>");
+	}
+	return ul;
+};
+
+function creaULdaJsonConFiltro(campi, jsonArray) {
+	var ul = $("<ul>");
+	var valori;
+	$.each(jsonArray, function() { // per ogni oggetto json dell'array
+		valori = "";
+		$.each(this, function(prop, val) { // per ogni proprietà dell'oggetto
+			if (campi.indexOf(prop) > -1) { // se la proprietà è presente nell'elenco dei campi da selezionare
+				valori += val + ", "
+			};
+		});
+		valori = valori.substring(0, valori.length - 2); // toglie ", " finale
+		ul.append("<li>" + valori + "</li>");
+	});
+	return ul;
 };
 
 
