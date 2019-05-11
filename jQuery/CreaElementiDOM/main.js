@@ -2,6 +2,7 @@
 
 var txtTestoDaTextBox, risTestoDaTextBoxWithKeyup, risTestoDaTextBoxWithBlur;
 var txtArrayJsonPerLista, btnListaDaJson, risListaDaJson;
+var cbo, risCboValue, risCboText;
 var alpinisti = [
 	{"id": "1", "nome":"Paul", "cognome":"Preuss", dataNascita:"19 agosto 1886", statoNascita:"Austria"},
 	{"id": "2", "nome":"Hans", "cognome":"Dulfer", dataNascita:" 23 maggio 1892", statoNascita:"Germania"},
@@ -24,6 +25,12 @@ $(document).ready(function () {
 	risListaDaJson = $("#risListaDaJson");
 	txtArrayJsonPerLista.val(JSON.stringify(alpinisti)); // stringify -> da json a stringa
 
+	cbo = $("#cbo");
+	risCboValue = $("#risCboValue");
+	risCboText = $("#risCboText");
+	creaOPTIONSdaJson(cbo, "id", "cognome", alpinisti);
+
+	//eventi
 	txtTestoDaTextBox.on("keyup", function() { // questa forma permette eventi multipli, separandoli con uno spazio
 		ecoTasti();
 	});
@@ -32,6 +39,8 @@ $(document).ready(function () {
 	txtTestoDaTextBox.blur(copiaTesto); // quando il controllo perde il focus ...
 
 	btnListaDaJson.click(creaListaDaJson);
+
+	cbo.change(mostraDatiVoceSelezionata);
 });
 
 function ecoTasti() {
@@ -79,6 +88,28 @@ function creaULdaJsonConFiltro(campi, jsonArray) {
 		ul.append("<li>" + valori + "</li>");
 	});
 	return ul;
+};
+
+function creaOPTIONSdaJson(objSelect, nomeCampoValue, nomeCampoText, jsonArray) {
+	var value, text, opt;
+	$.each(jsonArray, function() { // per ogni oggetto json dell'array
+		$.each(this, function(prop, val) { // per ogni proprietà dell'oggetto
+			if (nomeCampoValue.indexOf(prop) > -1) { // se la proprietà è presente nell'elenco dei campi da selezionare
+				value =  val;
+			};
+			if (nomeCampoText.indexOf(prop) > -1) { // se la proprietà è presente nell'elenco dei campi da selezionare
+				text = val;
+			};
+		});
+		opt = '<option value="' + value + '">' + text + '</option>';
+		objSelect.append(opt);
+	});
+};
+
+function mostraDatiVoceSelezionata(objSelect) {
+	var optionSelected = $(this).find("option:selected");
+	risCboValue.text(optionSelected.val());
+	risCboText.text(optionSelected.text());
 };
 
 

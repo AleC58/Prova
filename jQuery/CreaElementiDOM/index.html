@@ -23,7 +23,7 @@
 			<div id="divListaDaJson">
 				<h2>Lista non ordinata da testo che rappresenta un array json</h2>
 				<label for="txtArrayJsonPerLista">Testo: </label>
-				<textarea id="txtArrayJsonPerLista" rows="9" cols="160"></textarea>
+				<div><textarea id="txtArrayJsonPerLista" rows="9" cols="100"></textarea></div>
 				<button id="btnListaDaJson">Lista da array json</button>
 				<div id="risListaDaJson"></div>
 			</div>
@@ -31,7 +31,9 @@
 			<div id="divComboBox">
 				<h2>Elenco casella combinata (options della select)</h2>
 				<label for="cbo">Alpinisti: </label>
-				<select id="cbo"></select>
+				<select id="cbo">
+				<option value="-1">Seleziona una voce</option>
+				</select>
 				<div>
 					<p>Valore dell'elemento selezionato: <span id="risCboValue"></span></p>
 					<p>Testo dell'elemento selezionato: <span id="risCboText"></span></p>
