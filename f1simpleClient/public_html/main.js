@@ -1,3 +1,6 @@
+//NB: meglio un getDati() iniziale che prende via Ajax tutti i dati che servono
+// e li carica su array
+
 "use strict";
 
 var host = "192.168.4.1";
@@ -8,7 +11,7 @@ var btnElencoGrezzoCostruttori, risElencoGrezzoCostruttori; // 2
 var btnElencoCostruttori, risElencoCostruttori; // 3
 var btnTabellaPiloti, risTabellaPiloti; // 4
 var txtPilotiDelTeam, btnPilotiDelTeam, risPilotiDelTeam;
-var cboPilotiDelTeam, risPilotiDelTeam;
+var cboPilotiDelTeam, risPilotiDelTeamConSelect;
 
 // ******** MAIN
 $(document).ready(function () {
@@ -24,7 +27,9 @@ $(document).ready(function () {
 	btnPilotiDelTeam = $("#btnPilotiDelTeam");
 	risPilotiDelTeam = $("#risPilotiDelTeam");
 	cboPilotiDelTeam = $("#cboPilotiDelTeam");
-	risPilotiDelTeam = $("#risPilotiDelTeam");
+	risPilotiDelTeamConSelect = $("#risPilotiDelTeamConSelect");
+
+	creaOPTIONSdaAjaxSemplificata();
 
 	//gestori eventi
 	btnTestServizio.click(testServizio);
@@ -32,7 +37,7 @@ $(document).ready(function () {
 	btnElencoCostruttori.click(creaElencoCostruttori);
 	btnTabellaPiloti.click(creaTabellaPiloti);
 	btnPilotiDelTeam.click(creaTabellaPilotiDelTeamConTextbox);
-	//cboPilotiDelTeam.click(creaPilotiDelTeam);
+	cboPilotiDelTeam.change(creaTabellaPilotiDelTeamConSelect);
 });
 
 // ******** GESTORI EVENTI
@@ -122,6 +127,25 @@ function creaTabellaPilotiDelTeamConTextbox() { // 5
 	});
 };
 
+function creaTabellaPilotiDelTeamConSelect() { // 6
+	var anno = "2018";
+	var optionSelected = cboPilotiDelTeam.find("option:selected");
+	var idCostr = optionSelected.val();
+	$.ajax({
+		//url: "/campionati/{anno}/pilotiDeiTeams/{idCostruttore}",
+		url: urlBase + "/campionati/" + anno + "/pilotiDeiTeams/" + idCostr,
+		type: "GET",
+		dataType: "json", //formato dei dati ricevuti dal server
+		success: function (result) {
+			risPilotiDelTeamConSelect.empty();
+			risPilotiDelTeamConSelect.append(creaTABLEdaJson(result));
+		},
+		error: function (richiesta, stato, errori) {
+			risPilotiDelTeamConSelect.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
+		}
+	});
+};
+
 // ******** UTILITY
 function creaTABLEdaJson(jsonArray) {
 	var tabella = $("<table>");
@@ -140,3 +164,48 @@ function creaTABLEdaJson(jsonArray) {
 	});
 	return tabella;
 };
+
+function creaOPTIONSdaAjaxSemplificata() {
+	$.ajax({
+		url: urlBase + "/costruttori",
+		type: "GET",
+		dataType: "json", //formato dei dati ricevuti dal server
+		success: function (result) {
+			var idCostruttore, nomeCostruttore;
+			cboPilotiDelTeam.empty(); // cancella le eventuali <option> presenti
+			cboPilotiDelTeam.append('<option selected="true" disabled>-- Selezionare un elemento --</option>');
+			cboPilotiDelTeam.prop('selectedIndex', 0);
+			$.each(result, function() { // per ogni oggetto json dell'array
+				idCostruttore = result[j].idCostruttore;
+				nomeCostruttore = result[j].nomeCostruttore;
+				//opt = '<option value="' + idCostruttore + '">' + nomeCostruttore + '</option>';
+				//objSelect.append(opt);
+				objSelect.append($('<option>').attr('value', idCostruttore).text(nomeCostruttore));
+			});
+			},
+		error: function (richiesta, stato, errori) {
+			risElencoCostruttori.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
+		}
+	});
+};
+
+function creaOPTIONSdaJson(objSelect, nomeCampoValue, nomeCampoText, jsonArray) {
+	var value, text, opt;
+	objSelect.empty(); // cancella le eventuali <option> presenti
+	objSelect.append('<option selected="true" disabled>-- Selezionare un elemento --</option>');
+	objSelect.prop('selectedIndex', 0);
+	$.each(jsonArray, function() { // per ogni oggetto json dell'array
+		$.each(this, function(prop, val) { // per ogni proprietà dell'oggetto
+			if (nomeCampoValue.indexOf(prop) > -1) { // se la proprietà è presente nell'elenco dei campi da selezionare
+				value =  val;
+			};
+			if (nomeCampoText.indexOf(prop) > -1) { // se la proprietà è presente nell'elenco dei campi da selezionare
+				text = val;
+			};
+		});
+		//opt = '<option value="' + value + '">' + text + '</option>';
+		//objSelect.append(opt);
+		objSelect.append($('<option>').attr('value', value).text(text));
+	});
+};
+
