@@ -1,5 +1,8 @@
 "use strict";
 
+var host = "192.168.4.1";
+var porta = "8088";
+var urlBase = "http://" + host + ":" + porta;
 var btnTestServizio, risTestServizio; // 1
 var btnElencoGrezzoCostruttori, risElencoGrezzoCostruttori; // 2
 var btnElencoCostruttori, risElencoCostruttori; // 3
@@ -22,7 +25,7 @@ $(document).ready(function () {
 	risPilotiDelTeam = $("#risPilotiDelTeam");
 	cboPilotiDelTeam = $("#cboPilotiDelTeam");
 	risPilotiDelTeam = $("#risPilotiDelTeam");
-	
+
 	//gestori eventi
 	btnTestServizio.click(testServizio);
 	btnElencoGrezzoCostruttori.click(creaElencoGrezzoCostruttori);
@@ -35,7 +38,7 @@ $(document).ready(function () {
 // ******** GESTORI EVENTI
 function testServizio() { // 1
 	$.ajax({
-		url: "http://192.168.4.1:8088/",
+		url: urlBase + "/",
 		type: "GET",
 		//contentType: "application/json", //formato dei dati inviati al server
 		dataType: "text", //formato dei dati ricevuti dal server
@@ -50,7 +53,7 @@ function testServizio() { // 1
 
 function creaElencoGrezzoCostruttori() { // 2
 	$.ajax({
-		url: "http://192.168.4.1:8088/costruttori",
+		url: urlBase + "/costruttori",
 		type: "GET",
 		dataType: "json", //formato dei dati ricevuti dal server
 		success: function (result) {
@@ -65,7 +68,7 @@ function creaElencoGrezzoCostruttori() { // 2
 
 function creaElencoCostruttori() { // 3
 	$.ajax({
-		url: "http://192.168.4.1:8088/costruttori",
+		url: urlBase + "/costruttori",
 		type: "GET",
 		dataType: "json", //formato dei dati ricevuti dal server
 		success: function (result) {
@@ -88,7 +91,7 @@ function creaElencoCostruttori() { // 3
 
 function creaTabellaPiloti() { // 4
 	$.ajax({
-		url: "http://192.168.4.1:8088/piloti",
+		url: urlBase + "/piloti",
 		type: "GET",
 		dataType: "json", //formato dei dati ricevuti dal server
 		success: function (result) {
@@ -106,7 +109,7 @@ function creaTabellaPilotiDelTeamConTextbox() { // 5
 	var idCostr = txtPilotiDelTeam.val();
 	$.ajax({
 		//url: "/campionati/{anno}/pilotiDeiTeams/{idCostruttore}",
-		url: "http://192.168.4.1:8088/campionati/" + anno + "/pilotiDeiTeams/" + idCostr,
+		url: urlBase + "/campionati/" + anno + "/pilotiDeiTeams/" + idCostr,
 		type: "GET",
 		dataType: "json", //formato dei dati ricevuti dal server
 		success: function (result) {
@@ -128,7 +131,7 @@ function creaTABLEdaJson(jsonArray) {
 	$.each(jsonArray, function() { // per ogni oggetto json dell'array creo una riga
 		riga = $("<tr>");
 		$.each(this, function(prop, val) { // per ogni proprietà dell'oggetto corrente creo una cella
-			cella = $("<td>").text(val);
+			cella = $("<td>").text(val); // o $("<td>" + val + "</td>")
 			cella.css("border", "1px solid black");
 			cella.css("padding", "2px 4px");
 			riga.append(cella);

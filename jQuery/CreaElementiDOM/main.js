@@ -59,7 +59,7 @@ $(document).ready(function () {
 });
 
 function ecoTasti() {
-	$("#risTestoDaTextBoxWithKeyup").text(txtTestoDaTextBox.val());
+	risTestoDaTextBoxWithKeyup.text(txtTestoDaTextBox.val());
 };
 
 function selectTesto() {
@@ -67,17 +67,17 @@ function selectTesto() {
 };
 
 function copiaTesto() {
-	$("#risTestoDaTextBoxWithBlur").text(txtTestoDaTextBox.val());
+	risTestoDaTextBoxWithBlur.text(txtTestoDaTextBox.val());
 };
 
 function creaListaDaJson() {
-	$("#risListaDaJson").empty();
+	risListaDaJson.empty();
 	var jsonArray = JSON.parse(txtArrayJsonPerLista.val()); // da stringa a json
 	//var ul = creaULdaJson(jsonArray);
 	var campi = ["nome", "cognome"];
 	//var ul = creaULdaJsonConFiltro(campi, jsonArray);
 	var ul = creaULdaJsonConFiltroTradizionale(campi, jsonArray);
-	$("#risListaDaJson").append(ul);
+	risListaDaJson.append(ul);
 };
 
 function creaULdaJson(jsonArray) {
@@ -85,7 +85,8 @@ function creaULdaJson(jsonArray) {
 	var valori;
 	for (var j = 0, len = jsonArray.length; j < len; j++) {
 		valori = JSON.stringify(jsonArray[j]);
-		ul.append("<li>" + valori + "</li>");
+		ul.append("<li>" + valori + "</li>"); // oppure:
+		//ul.append($("<p>").text(valori));
 	}
 	return ul;
 };
@@ -158,10 +159,10 @@ function mostraDatiVoceSelezionata(objSelect) {
 };
 
 function creaTabellaDaJson(jsonArray) {
-	$("#risCreaTabella").append(creaTABLEdaJson(jsonArray));
-	$("#risCreaTabella").append(creaTABLEconIntestazionidaJson(jsonArray));
+	risCreaTabella.append(creaTABLEdaJson(jsonArray));
+	risCreaTabella.append(creaTABLEconIntestazionidaJson(jsonArray));
 	var intestazioni = ["ID", "Nome", "Cognome", "Data di nascita", "Stato di nascita"];
-	$("#risCreaTabella").append(creaTABLEconIntestazionidaJson(jsonArray, intestazioni));
+	risCreaTabella.append(creaTABLEconIntestazionidaJson(jsonArray, intestazioni));
 };
 
 function creaTABLEdaJson(jsonArray) {
@@ -220,89 +221,3 @@ function creaTABLEconIntestazionidaJson(jsonArray, vetIntestazioni) {
 	return tabella;
 };
 
-
-
-/*
-	$(document).ready(function () {
-	btnTestServizio = $("#btnTestServizio");
-	risTestServizio = $("#risTestServizio");
-	btnElencoCostruttori = $("#btnElencoCostruttori");
-	risElencoCostruttori = $("#risElencoCostruttori");
-	btnTabellaPiloti = $("#btnTabellaPiloti");
-	risTabellaPiloti = $("#risTabellaPiloti");
-	cboPilotiDelTeam = $("#cboPilotiDelTeam");
-	risPilotiDelTeam = $("#risPilotiDelTeam");
-	btnTestServizio.click(testServizio);
-	btnElencoCostruttori.click(creaElencoCostruttori);
-	btnTabellaPiloti.click(creaTabellaPiloti);
-	cboPilotiDelTeam.click(creaPilotiDelTeam);
-});
-
-function testServizio() {
-	$.ajax({
-		url: "http://192.168.4.1:8088/",
-		type: "GET",
-		//contentType: "application/json", //formato dei dati inviati al server
-		dataType: "text", //formato dei dati ricevuti dal server
-		success: function (result) {
-			$("#risTestServizio").text(result);
-		},
-		error: function (richiesta, stato, errori) {
-			$("#risTestServizio").text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
-		}
-	});
-};
-
-function creaElencoCostruttori() {
-	$.ajax({
-		url: "http://192.168.4.1:8088/costruttori",
-		type: "GET",
-		dataType: "json", //formato dei dati ricevuti dal server
-		success: function (result) {
-			var dati, nomeCostruttore, nazioneCostruttore;
-			var lista = $("<ul>");
-			for (var j = 0; j < result.length; j++) {
-				nomeCostruttore = result[j].nomeCostruttore;
-				nazioneCostruttore = result[j].nazioneCostruttore;
-				dati = nomeCostruttore + " - " + nazioneCostruttore;
-				lista.append("<li>" + dati + "</li>");
-			}
-			$("#risElencoCostruttori").append(lista);
-		},
-		error: function (richiesta, stato, errori) {
-			$("#risElencoCostruttori").text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
-		}
-	});
-};
-
-function creaTabellaPiloti() {
-	$.ajax({
-		url: "http://192.168.4.1:8088/piloti",
-		type: "GET",
-		dataType: "json", //formato dei dati ricevuti dal server
-		success: function (result) {
-			var ris = JSON.stringify(result);
-			$("#risTabellaPiloti").text(ris);
-		},
-		error: function (richiesta, stato, errori) {
-			$("#risTabellaPiloti").text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
-		}
-	});
-};
-
-function creaPilotiDelTeam() {
-	$.ajax({
-		url: "http://192.168.4.1:8088/piloti",
-		type: "GET",
-		dataType: "json", //formato dei dati ricevuti dal server
-		success: function (result) {
-			var ris = JSON.stringify(result);
-			$("#risPilotiDelTeam").text(ris);
-		},
-		error: function (richiesta, stato, errori) {
-			$("#risPilotiDelTeam").text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
-		}
-	});
-};
-
-*/
