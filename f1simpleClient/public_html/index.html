@@ -10,31 +10,40 @@
 	<body>
 		<div id="pagina">
 			<h1>F1simpleClient</h1>
-			<!--<div id="div">
-				<h2></h2>
-				<button id="btn"></button>
-				<div id="ris"></div>
-			</div>-->
 			<div id="divTestServizio">
-				<h2>Test servizio</h2>
+				<h2>1) Test servizio</h2>
 				<button id="btnTestServizio">Test servizio</button>
-				<div id="risTestServizio"></div>
+				<div id="risTestServizio">Scrivere qui i risultati</div>
+			</div>
+			<div id="divElencoGrezzoCostruttori">
+				<h2>2) Elenco costruttori (dati grezzi)</h2>
+				<button id="btnElencoGrezzoCostruttori">Elenco costruttori</button>
+				<div id="risElencoGrezzoCostruttori">Scrivere qui i risultati</div>
 			</div>
 			<div id="divElencoCostruttori">
-				<h2>Elenco costruttori</h2>
+				<h2>3) Elenco costruttori (lista non ord.)</h2>
 				<button id="btnElencoCostruttori">Elenco costruttori</button>
-				<div id="risElencoCostruttori"></div>
+				<div id="risElencoCostruttori">Scrivere qui i risultati</div>
 			</div>
 			<div id="divTabellaPiloti">
-				<h2>Tabella piloti</h2>
+				<h2>4) Tabella piloti</h2>
 				<button id="btnTabellaPiloti">Tabella piloti</button>
-				<div id="risTabellaPiloti"></div>
+				<div id="risTabellaPiloti">Scrivere qui i risultati</div>
 			</div>
 			<div id="divPilotiDelTeam">
-				<h2>Piloti del team</h2>
+				<h2>5) Piloti del team (con textbox)</h2>
+				<label for="txtPilotiDelTeam">Team: </label>
+				<input type="text" id="txtPilotiDelTeam" />
+				<button id="btnPilotiDelTeam">Mostra piloti</button>
+				<div id="risPilotiDelTeam">Scrivere qui i risultati</div>
+			</div>
+			<div id="divPilotiDelTeamConSelect">
+				<h2>5) Piloti del team (con select)</h2>
 				<label for="cboPilotiDelTeam">Team: </label>
-				<select id="cboPilotiDelTeam"></select>
-				<div id="risPilotiDelTeam"></div>
+				<select id="cboPilotiDelTeam">
+					<option value="-1">Scegliere il team</option>
+				</select>
+				<div id="risPilotiDelTeamConSelect">Scrivere qui i risultati</div>
 			</div>
 		</div>
 	</body>
