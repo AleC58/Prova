@@ -4,7 +4,6 @@ var txtTestoDaTextBox, risTestoDaTextBoxWithKeyup, risTestoDaTextBoxWithBlur;
 var txtArrayJsonPerLista, btnListaDaJson, risListaDaJson;
 var cbo, risCboValue, risCboText;
 var btnCreaTabella, risCreaTabella;
-var btnSubmitQueryString, btnSubmiArray, risQueryString, risArray;
 
 var alpinisti = [
 	{"id": "1", "nome":"Paul", "cognome":"Preuss", dataNascita:"19 agosto 1886", statoNascita:"Austria"},
@@ -42,11 +41,6 @@ $(document).ready(function () {
 	btnCreaTabella = $("#btnCreaTabella");
 	risCreaTabella = $("#risCreaTabella");
 
-	btnSubmitQueryString = $("#btnSubmitQueryString");
-	btnSubmiArray = $("#btnSubmiArray");
-	risQueryString = $("#risQueryString");
-	risArray = $("#risArray");
-
 	//eventi
 	txtTestoDaTextBox.on("keyup", function() { // questa forma permette eventi multipli, separandoli con uno spazio
 		ecoTasti();
@@ -62,18 +56,7 @@ $(document).ready(function () {
 	btnCreaTabella.click(function() {
 		creaTabellaDaJson(alpinisti);
 	});
-
-	btnSubmitQueryString.click(sumitComeQueryString);
-	btnSubmiArray.click(sumitbtnSubmiComeArray);
 });
-
-function sumitComeQueryString() {
-	$("#risQueryString").text($("#frm").serialize());
-};
-
-function sumitbtnSubmiComeArray() {
-	$("#risArray").text();
-};
 
 function ecoTasti() {
 	$("#risTestoDaTextBoxWithKeyup").text(txtTestoDaTextBox.val());
