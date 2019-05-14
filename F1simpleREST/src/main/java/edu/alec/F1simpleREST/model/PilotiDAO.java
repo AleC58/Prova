@@ -59,6 +59,8 @@ public class PilotiDAO {
 		Pilota p10 = new Pilota(10, "Magnussen", "Kevin", "Danimarca", "1992-10-05");
 		Pilota p11 = new Pilota(11, "Alonso", "Fernando", "Spagna", "1981-07-29");
 		Pilota p12 = new Pilota(12, "Vandoome", "Stoffel", "Belgio", "1992-03-26");
+		Pilota p13 = new Pilota(13, "Leclerc", "Charles", "Princ. di Monaco", "1997-10-16");
+		Pilota p14 = new Pilota(13, "Gasly", "Pierre", "Francia", "1996-02-07");
 		piloti.add(p1);
 		piloti.add(p2);
 		piloti.add(p3);
@@ -71,6 +73,8 @@ public class PilotiDAO {
 		piloti.add(p10);
 		piloti.add(p11);
 		piloti.add(p12);
+		piloti.add(p13);
+		piloti.add(p14);
 	}
 
 }

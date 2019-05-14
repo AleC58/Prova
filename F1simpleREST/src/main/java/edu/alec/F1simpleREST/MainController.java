@@ -52,7 +52,7 @@ public class MainController {
 	@RequestMapping(value = "/campionati", produces = {"application/JSON"})
 	@ResponseBody
 	public List<Campionato> getAllCampionati() {
-		return null; //db.
+		return db.getAllCampionati();
 	}
 
 	@RequestMapping(value = "/campionati/{anno}", method = GET, produces = {"application/JSON"})

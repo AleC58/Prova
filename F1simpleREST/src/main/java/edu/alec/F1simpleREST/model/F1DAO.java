@@ -59,6 +59,10 @@ public class F1DAO {
 		return costruttoriDAO.get(nome);
 	}
 
+	public List<Campionato> getAllCampionati() {
+		return campionatiDAO.getAll();
+	}
+
 	public List<Campionato> getCampionatoByAnno(int annoCampionato) {
 		return campionatiDAO.get(annoCampionato);
 	}
