@@ -176,11 +176,11 @@ function creaOPTIONSdaAjaxSemplificata() {
 			cboPilotiDelTeam.append('<option selected="true" disabled>-- Selezionare un elemento --</option>');
 			cboPilotiDelTeam.prop('selectedIndex', 0);
 			$.each(result, function() { // per ogni oggetto json dell'array
-				idCostruttore = result[j].idCostruttore;
-				nomeCostruttore = result[j].nomeCostruttore;
+				idCostruttore = this.idCostruttore;
+				nomeCostruttore = this.nomeCostruttore;
 				//opt = '<option value="' + idCostruttore + '">' + nomeCostruttore + '</option>';
 				//objSelect.append(opt);
-				objSelect.append($('<option>').attr('value', idCostruttore).text(nomeCostruttore));
+				cboPilotiDelTeam.append($('<option>').attr('value', idCostruttore).text(nomeCostruttore));
 			});
 			},
 		error: function (richiesta, stato, errori) {
@@ -195,11 +195,11 @@ function creaOPTIONSdaJson(objSelect, nomeCampoValue, nomeCampoText, jsonArray) 
 	objSelect.append('<option selected="true" disabled>-- Selezionare un elemento --</option>');
 	objSelect.prop('selectedIndex', 0);
 	$.each(jsonArray, function() { // per ogni oggetto json dell'array
-		$.each(this, function(prop, val) { // per ogni proprietà dell'oggetto
-			if (nomeCampoValue.indexOf(prop) > -1) { // se la proprietà è presente nell'elenco dei campi da selezionare
+		$.each(this, function(prop, val) { // per ogni proprietï¿½ dell'oggetto
+			if (nomeCampoValue.indexOf(prop) > -1) { // se la proprietï¿½ ï¿½ presente nell'elenco dei campi da selezionare
 				value =  val;
 			};
-			if (nomeCampoText.indexOf(prop) > -1) { // se la proprietà è presente nell'elenco dei campi da selezionare
+			if (nomeCampoText.indexOf(prop) > -1) { // se la proprietï¿½ ï¿½ presente nell'elenco dei campi da selezionare
 				text = val;
 			};
 		});
