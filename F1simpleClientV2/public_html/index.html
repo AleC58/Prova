@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="IT">
+	<head>
+		<title>F1simpleClient</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="jquery-3.3.1.min.js" type="text/javascript"></script>
+		<script src="main.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="pagina">
+			<h1>F1simpleClient</h1>
+			<div id="divTestServizio">
+				<h2>1) Test servizio</h2>
+				<button id="btnTestServizio">Test servizio</button>
+				<div id="risTestServizio">Scrivere qui i risultati</div>
+			</div>
+			<div id="divElencoGrezzoCostruttori">
+				<h2>2) Elenco costruttori (dati grezzi)</h2>
+				<button id="btnElencoGrezzoCostruttori">Elenco costruttori</button>
+				<div id="risElencoGrezzoCostruttori">Scrivere qui i risultati</div>
+			</div>
+			<div id="divElencoCostruttori">
+				<h2>3) Elenco costruttori (lista non ord.)</h2>
+				<button id="btnElencoCostruttori">Elenco costruttori</button>
+				<div id="risElencoCostruttori">Scrivere qui i risultati</div>
+			</div>
+			<div id="divTabellaPiloti">
+				<h2>4) Tabella piloti</h2>
+				<button id="btnTabellaPiloti">Tabella piloti</button>
+				<div id="risTabellaPiloti">Scrivere qui i risultati</div>
+			</div>
+			<div id="divPilotiDelTeam">
+				<h2>5) Piloti del team (con textbox)</h2>
+				<label for="txtPilotiDelTeam">Team: </label>
+				<input type="text" id="txtPilotiDelTeam" />
+				<button id="btnPilotiDelTeam">Mostra piloti</button>
+				<div id="risPilotiDelTeam">Scrivere qui i risultati</div>
+			</div>
+			<div id="divPilotiDelTeamConSelect">
+				<h2>6) Piloti del team (con select)</h2>
+				<label for="cboPilotiDelTeam">Team: </label>
+				<select id="cboPilotiDelTeam">
+					<option value="-1">Scegliere il team</option>
+				</select>
+				<div id="risPilotiDelTeamConSelect">Scrivere qui i risultati</div>
+			</div>
+		</div>
+	</body>
+</html>
