@@ -38,61 +38,18 @@ $(document).ready(function () {
 });
 
 // ******** GESTORI EVENTI
-function faiRichiestaAjax(urlAPI, funzioneOK, funzioneERROR) {
-	$.ajax({
-		url: urlBase + urlAPI,
-		type: "GET",
-		//contentType: "application/json", //formato dei dati inviati al server
-		dataType: "text", //formato dei dati ricevuti dal server
-		success: function (result) {
-			funzioneOK(result);
-		},
-		error: function (richiesta, stato, errori) {
-			funzioneERROR("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
-		}
-	});
-};
-
 function testServizio() { // 1
 	var url = "/";
 	faiRichiestaAjax(url, gestTestServizioOK, gestTestServizioError);
-/*
-$.ajax({
-		type: "GET",
-		//contentType: "application/json", //formato dei dati inviati al server
-		dataType: "text", //formato dei dati ricevuti dal server
-		success: function (result) {
-			risTestServizio.text(result);
-		},
-		error: function (richiesta, stato, errori) {
-			risTestServizio.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
-		}
-	});*/
 };
 
 function gestTestServizioOK(result) { // 1
-	alert(result);
 	risTestServizio.text(result);
 };
 
 function gestTestServizioError(result) { // 1
-	alert("result");
+	alert(result);
 	//risTestServizio.text(result);
-};
-
-function testServizioORIG() { // 1
-	$.ajax({
-		url: urlBase + "/",
-		type: "GET",
-		//contentType: "application/json", //formato dei dati inviati al server
-		dataType: "text", //formato dei dati ricevuti dal server
-		success: function (result) {
-			risTestServizio.text(result);
-		},
-		error: function (richiesta, stato, errori) {
-			risTestServizio.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
-		}
-	});
 };
 
 function creaElencoGrezzoCostruttori() { // 2
@@ -186,6 +143,21 @@ function creaTabellaPilotiDelTeamConSelect() { // 6
 };
 
 // ******** UTILITY
+function faiRichiestaAjax(urlAPI, funzioneOK, funzioneERROR) {
+	$.ajax({
+		url: urlBase + urlAPI,
+		type: "GET",
+		//contentType: "application/json", //formato dei dati inviati al server
+		dataType: "text", //formato dei dati ricevuti dal server
+		success: function (result) {
+			funzioneOK(result);
+		},
+		error: function (xhr, stato, errori) {
+			funzioneERROR("ERRORE! - " + xhr.status + "  - Stato: " + stato + "  - Errore: " + xhr.responseText);
+		}
+	});
+};
+
 function creaTABLEdaJson(jsonArray) {
 	var tabella = $("<table>");
 	tabella.css("border", "2px solid black");
