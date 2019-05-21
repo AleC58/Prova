@@ -38,35 +38,37 @@ $(document).ready(function () {
 });
 
 // ******** GESTORI EVENTI
+// gestita con function "globale" (faiRichiestaAjax)
+// e function di supporto (gestTestServizioOK e gestTestServizioError)
 function testServizio() { // 1
 	var url = "/";
-	faiRichiestaAjax(url, gestTestServizioOK, gestTestServizioError);
-};
+	faiRichiestaAjax(url, "text", gestTestServizioOK, gestTestServizioError);
+}
 
 function gestTestServizioOK(result) { // 1
 	risTestServizio.text(result);
-};
+}
 
 function gestTestServizioError(result) { // 1
-	alert(result);
-	//risTestServizio.text(result);
-};
+	risTestServizio.text(result);
+}
 
+// gestita con function "globale" (faiRichiestaAjax)
+// e function anonime di callback
 function creaElencoGrezzoCostruttori() { // 2
-	$.ajax({
-		url: urlBase + "/costruttori",
-		type: "GET",
-		dataType: "json", //formato dei dati ricevuti dal server
-		success: function (result) {
+	var url = "/costruttori";
+	faiRichiestaAjax(url, "json",
+		function (result) { //richiesta OK
 			risElencoGrezzoCostruttori.empty();
 			risElencoGrezzoCostruttori.append(JSON.stringify(result));
 		},
-		error: function (richiesta, stato, errori) {
-			risElencoCostruttori.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
+		function (result) { //richiesta errata
+			risElencoGrezzoCostruttori.text("QQ " + result);
 		}
-	});
-};
+	);
+}
 
+// gestita in modo base
 function creaElencoCostruttori() { // 3
 	$.ajax({
 		url: urlBase + "/costruttori",
@@ -88,7 +90,7 @@ function creaElencoCostruttori() { // 3
 			risElencoCostruttori.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
 		}
 	});
-};
+}
 
 function creaTabellaPiloti() { // 4
 	$.ajax({
@@ -103,7 +105,7 @@ function creaTabellaPiloti() { // 4
 			risTabellaPiloti.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
 		}
 	});
-};
+}
 
 function creaTabellaPilotiDelTeamConTextbox() { // 5
 	var anno = "2018";
@@ -121,51 +123,54 @@ function creaTabellaPilotiDelTeamConTextbox() { // 5
 			risPilotiDelTeam.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
 		}
 	});
-};
+}
 
+// $.ajax con nuovo standard jQuery 3.0
+// -> success ed error sono deprecate
 function creaTabellaPilotiDelTeamConSelect() { // 6
 	var anno = "2018";
 	var optionSelected = cboPilotiDelTeam.find("option:selected");
 	var idCostr = optionSelected.val();
 	$.ajax({
 		//url: "/campionati/{anno}/pilotiDeiTeams/{idCostruttore}",
-		url: urlBase + "/campionati/" + anno + "/pilotiDeiTeams/" + idCostr,
+		url: urlBase + "/campionatix/" + anno + "/pilotiDeiTeams/" + idCostr,
 		type: "GET",
-		dataType: "json", //formato dei dati ricevuti dal server
-		success: function (result) {
-			risPilotiDelTeamConSelect.empty();
-			risPilotiDelTeamConSelect.append(creaTABLEdaJson(result));
-		},
-		error: function (richiesta, stato, errori) {
-			risPilotiDelTeamConSelect.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
-		}
+		dataType: "json"}) //formato dei dati ricevuti dal server
+	.done(function (result) {
+		risPilotiDelTeamConSelect.empty();
+		risPilotiDelTeamConSelect.append(creaTABLEdaJson(result));
+	})
+	.fail(function (jqXHR, textStatus , errorThrown) {
+		console.log(JSON.stringify(jqXHR));
+		risPilotiDelTeamConSelect.text("ERRORE! - " + jqXHR.status + "  - Stato: " + textStatus  + "  - Errore: " + errorThrown);
 	});
-};
+}
 
 // ******** UTILITY
-function faiRichiestaAjax(urlAPI, funzioneOK, funzioneERROR) {
+function faiRichiestaAjax(urlAPI, tipoRisposta, funzioneOK, funzioneERROR) {
 	$.ajax({
 		url: urlBase + urlAPI,
 		type: "GET",
 		//contentType: "application/json", //formato dei dati inviati al server
-		dataType: "text", //formato dei dati ricevuti dal server
+		dataType: tipoRisposta, //formato dei dati ricevuti dal server
 		success: function (result) {
 			funzioneOK(result);
 		},
 		error: function (xhr, stato, errori) {
+			console.log(JSON.stringify(xhr));
 			funzioneERROR("ERRORE! - " + xhr.status + "  - Stato: " + stato + "  - Errore: " + xhr.responseText);
 		}
 	});
-};
+}
 
 function creaTABLEdaJson(jsonArray) {
 	var tabella = $("<table>");
 	tabella.css("border", "2px solid black");
 	tabella.css("border-collapse", "collapse");
 	var riga, cella;
-	$.each(jsonArray, function() { // per ogni oggetto json dell'array creo una riga
+	$.each(jsonArray, function () { // per ogni oggetto json dell'array creo una riga
 		riga = $("<tr>");
-		$.each(this, function(prop, val) { // per ogni proprietà dell'oggetto corrente creo una cella
+		$.each(this, function (prop, val) { // per ogni proprietà dell'oggetto corrente creo una cella
 			cella = $("<td>").text(val); // o $("<td>" + val + "</td>")
 			cella.css("border", "1px solid black");
 			cella.css("padding", "2px 4px");
@@ -174,7 +179,7 @@ function creaTABLEdaJson(jsonArray) {
 		tabella.append(riga);
 	});
 	return tabella;
-};
+}
 
 function creaOPTIONSdaAjaxSemplificata() {
 	$.ajax({
@@ -186,37 +191,37 @@ function creaOPTIONSdaAjaxSemplificata() {
 			cboPilotiDelTeam.empty(); // cancella le eventuali <option> presenti
 			cboPilotiDelTeam.append('<option selected="true" disabled>-- Selezionare un elemento --</option>');
 			cboPilotiDelTeam.prop('selectedIndex', 0);
-			$.each(result, function() { // per ogni oggetto json dell'array
+			$.each(result, function () { // per ogni oggetto json dell'array
 				idCostruttore = this.idCostruttore;
 				nomeCostruttore = this.nomeCostruttore;
 				//opt = '<option value="' + idCostruttore + '">' + nomeCostruttore + '</option>';
 				//objSelect.append(opt);
 				cboPilotiDelTeam.append($('<option>').attr('value', idCostruttore).text(nomeCostruttore));
 			});
-			},
+		},
 		error: function (richiesta, stato, errori) {
 			risElencoCostruttori.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
 		}
 	});
-};
+}
 
 function creaOPTIONSdaJson(objSelect, nomeCampoValue, nomeCampoText, jsonArray) {
-	var value, text, opt;
+	var value, text;
 	objSelect.empty(); // cancella le eventuali <option> presenti
 	objSelect.append('<option selected="true" disabled>-- Selezionare un elemento --</option>');
 	objSelect.prop('selectedIndex', 0);
-	$.each(jsonArray, function() { // per ogni oggetto json dell'array
-		$.each(this, function(prop, val) { // per ogni propriet� dell'oggetto
+	$.each(jsonArray, function () { // per ogni oggetto json dell'array
+		$.each(this, function (prop, val) { // per ogni propriet� dell'oggetto
 			if (nomeCampoValue.indexOf(prop) > -1) { // se la propriet� � presente nell'elenco dei campi da selezionare
-				value =  val;
-			};
+				value = val;
+			}
 			if (nomeCampoText.indexOf(prop) > -1) { // se la propriet� � presente nell'elenco dei campi da selezionare
 				text = val;
-			};
+			}
 		});
 		//opt = '<option value="' + value + '">' + text + '</option>';
 		//objSelect.append(opt);
 		objSelect.append($('<option>').attr('value', value).text(text));
 	});
-};
+}
 

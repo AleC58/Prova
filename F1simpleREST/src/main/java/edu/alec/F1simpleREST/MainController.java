@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class MainController {
 	F1DAO db = F1DAO.getInstance();
-	@RequestMapping("/")
+	@RequestMapping("/x")
 	public String index() {
 		return "Hello from F1simpleREST!";
 	}
