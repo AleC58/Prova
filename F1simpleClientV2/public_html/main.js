@@ -187,7 +187,7 @@ function creaOPTIONSdaAjaxSemplificata() {
 		type: "GET",
 		dataType: "json", //formato dei dati ricevuti dal server
 		success: function (result) {
-			var idCostruttore, nomeCostruttore;
+			let idCostruttore, nomeCostruttore;
 			cboPilotiDelTeam.empty(); // cancella le eventuali <option> presenti
 			cboPilotiDelTeam.append('<option selected="true" disabled>-- Selezionare un elemento --</option>');
 			cboPilotiDelTeam.prop('selectedIndex', 0);
@@ -200,7 +200,11 @@ function creaOPTIONSdaAjaxSemplificata() {
 			});
 		},
 		error: function (richiesta, stato, errori) {
-			risElencoCostruttori.text("ERRORE! - Stato: " + stato + "  - Errore: " + errori);
+			let msgErr = "ERRORE! - Stato: " + stato + "  - Errore: " + errori;
+			cboPilotiDelTeam.empty(); // cancella le eventuali <option> presenti
+			cboPilotiDelTeam.append('<option selected="true" disabled>' + msgErr + '</option>');
+			cboPilotiDelTeam.prop('selectedIndex', 0);
+			//risZZZ.text(msgErr);
 		}
 	});
 }
