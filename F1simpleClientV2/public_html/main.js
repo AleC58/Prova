@@ -133,7 +133,7 @@ function creaTabellaPilotiDelTeamConSelect() { // 6
 	var idCostr = optionSelected.val();
 	$.ajax({
 		//url: "/campionati/{anno}/pilotiDeiTeams/{idCostruttore}",
-		url: urlBase + "/campionatix/" + anno + "/pilotiDeiTeams/" + idCostr,
+		url: urlBase + "/campionatiz/" + anno + "/pilotiDeiTeams/" + idCostr,
 		type: "GET",
 		dataType: "json"}) //formato dei dati ricevuti dal server
 	.done(function (result) {
