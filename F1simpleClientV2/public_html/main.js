@@ -1,5 +1,5 @@
 "use strict";
-
+//alert("QQ");
 var host = "192.168.4.1";
 var porta = "8088";
 var urlBase = "http://" + host + ":" + porta;
@@ -141,6 +141,7 @@ function creaTabellaPilotiDelTeamConSelect() { // 6
 		risPilotiDelTeamConSelect.append(creaTABLEdaJson(result));
 	})
 	.fail(function (jqXHR, textStatus , errorThrown) {
+		console.log("QQ" + jqXHR.responseText);
 		console.log(JSON.stringify(jqXHR));
 		risPilotiDelTeamConSelect.text("ERRORE! - " + jqXHR.status + "  - Stato: " + textStatus  + "  - Errore: " + errorThrown);
 	});
@@ -157,7 +158,8 @@ function faiRichiestaAjax(urlAPI, tipoRisposta, funzioneOK, funzioneERROR) {
 			funzioneOK(result);
 		},
 		error: function (xhr, stato, errori) {
-			console.log(JSON.stringify(xhr));
+			console.log("QQ" + JSON.stringify(xhr));
+			console.log(xhr.prototype);
 			funzioneERROR("ERRORE! - " + xhr.status + "  - Stato: " + stato + "  - Errore: " + xhr.responseText);
 		}
 	});
@@ -200,6 +202,7 @@ function creaOPTIONSdaAjaxSemplificata() {
 			});
 		},
 		error: function (richiesta, stato, errori) {
+			console.log("R: " + richiesta.prototype);
 			let msgErr = "ERRORE! - Stato: " + stato + "  - Errore: " + errori;
 			cboPilotiDelTeam.empty(); // cancella le eventuali <option> presenti
 			cboPilotiDelTeam.append('<option selected="true" disabled>' + msgErr + '</option>');
