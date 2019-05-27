@@ -7,6 +7,7 @@
 - NB: il progetto ha errori, e non si vede "Source packages"
       -> per risolvere:
   Clean and build project
+- creare la classe VaadinHello
 */
 
 package edu.alec.provavaadin;
