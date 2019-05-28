@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>edu.alec</groupId>
 	<artifactId>VaadinDaSpring</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>VaadinDaSpring</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Hello world con Vaadin e Spring boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>

@@ -4,8 +4,7 @@
   Nomi: edu.alec / ProvaVaadin
 - scaricare lo zip ed estrarlo
 - aprire il progetto (File / Open project)
-- NB: il progetto ha errori, e non si vede "Source packages"
-      -> per risolvere: Clean and build project
+- Clean and build project per scaricare le dipendenze
 - eseguire il progetto
 NB: se ci sono problemi nella partenza del web container
     cambiare la porta del server in application.properties
