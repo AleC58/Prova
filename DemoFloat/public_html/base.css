@@ -1,0 +1,35 @@
+#pagina {
+	width: 800px;
+	margin: 4px auto;
+	background-color: #888;
+}
+
+#testata {
+	background-color: red;
+}
+
+#info {
+	background-color: #0f0;
+	float: left;
+	width: 600px;
+}
+
+#nav {
+	background-color: blue;
+	margin: 0 0 0 610px;
+}
+
+#piePag {
+	background-color: #f00;
+	text-align: center;
+	clear: both;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	margin: 0 0 3px 0;
+}

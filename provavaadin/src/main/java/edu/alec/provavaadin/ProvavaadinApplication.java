@@ -1,15 +1,13 @@
 /*
 - generare il progetto da https://start.spring.io/
   Maven / Java / Spring boot 2.1.5
-  Nomi: edu.alec / ProvaVaadin
-  Dep.: Vaadin
-- importare il progetto (File / Import project / From Zip)
-- NB: il progetto ha errori, e non si vede "Source packages"
-      -> per risolvere:
-  Clean and build project
+  Nomi: edu.alec / NomeProgetto
+  Dep.: DevTools, Vaadin
+- estrarre il progetto (da 7zip / Estrai qui)
+- aprire il progetto (File / Open project)
+- fare Clean and build project
 - creare la classe VaadinHello
-*/
-
+ */
 package edu.alec.provavaadin;
 
 import org.springframework.boot.SpringApplication;
