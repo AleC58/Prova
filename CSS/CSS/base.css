@@ -1,0 +1,21 @@
+p {
+	font: 12pt Arial, Helvetica, sans-serif;
+	margin: 0 0 3px 0;
+	background-color: #FFFFCC;
+}
+
+#pagina {
+	width: 800px;
+}
+
+.citta {
+	color: #FF99CC;
+}
+
+.cittaIta {
+	font-style: italic;
+}
+
+.vini {
+	color: #9900CC;
+}

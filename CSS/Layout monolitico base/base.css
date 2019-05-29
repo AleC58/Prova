@@ -1,0 +1,29 @@
+/* CSS Document */
+#pagina {
+	width:800px;
+	background-color:#FFFFCC;
+	margin:0px auto;
+}
+#header {
+	background-color:#fbb;
+}
+#menu {
+	background-color:#bfb;
+}
+#info {
+	width:600px;
+	background-color:#bbf;
+}
+#footer {
+	background-color:#9ff;
+}
+p, li, ul, h1, h2 {
+	margin:0;
+}
+img.sx {
+	float:left;
+}
+img.centro {
+	margin:5px auto;
+	display:block;
+}

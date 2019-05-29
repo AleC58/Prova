@@ -1,0 +1,96 @@
+body, html {
+	background-color: #7A5200;
+}
+
+#pagina {
+	width: 780px;
+	margin: 4px auto;
+}
+
+/* Testata */
+#header {
+	/*background-color: #7A5200;*/
+	background-image: url(img/sfondoTestata.jpg);
+	height: 120px;
+	margin-bottom: 4px;
+}
+
+#header h1 {
+	margin: 0;
+	padding: 20px;
+	font: italic normal bold 60px "Times New Roman", Times, serif;
+	color: #c09150;
+	text-align: center;
+}
+
+/* Corpo pagina */
+/* composto da una colonna posizionata sul lato sinistro,
+alla quale ne viene affiancata un'altra, alla sua destra,
+che potrebbe contenere il menu di navigazione */
+#info {
+	width: 530px;
+	float: left;
+	background-color: #c09150;
+	margin-bottom: 6px;
+}
+
+#info h2 {
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+}
+
+#info p {
+	font: normal normal normal 1.1em Arial, Helvetica, sans-serif;
+	margin: 0 4px 6px 4px;
+}
+
+/* Seconda colonna */
+/* Non è necessario assegnare una larghezza, in quanto sarà il resto */
+#menu {
+	background-color: #c09150;
+	margin-left: 550px;
+}
+
+#menu h2 {
+	margin: 0;
+	padding: 20px 0;
+	text-align: center;
+	font-size: 18px;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#menu li {
+	margin: 0 0 1em 0;
+	padding: 0;
+	text-align: center;
+}
+
+/* Footer
+La dichiarazione clear:both assegnata al footer annulla l' effetto del float,
+dato al DIV info, e fa in modo che il footer si trovi effettivamente al di sotto di esso.*/
+#piePag {
+	clear: both;
+	margin-top: 6px;
+	border-top: 2px solid #c09150;
+}
+
+#piePag p {
+	font: normal normal normal 1em "Times New Roman", Times, serif;
+	color: #fff;
+}
+
+#piePag img {
+	float: right;
+	margin-left: 10px;
+}
+
+.importante {
+	color: #c00;
+	font-style: italic;
+}

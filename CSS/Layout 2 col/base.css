@@ -1,0 +1,82 @@
+#pagina {
+	width: 1000px;
+	margin: 3px auto;
+	background-color: #FFFF99;
+}
+
+#testata {
+	background-color: #FF66FF;
+}
+
+#menu {
+	margin: 0 0 0 10px;
+	background-color: #CCFFCC;
+	text-align: center;
+}
+
+#info {
+	width: 790px;
+	float: left;
+	margin: 0 0 0 0;
+	background-color: #9999FF;
+}
+
+#piePag {
+	clear: both;
+	background-color:#33FF00;
+}
+
+
+#testata h1 {
+	margin: 0;
+}
+
+#info h2, #menu h2 {
+	margin: 0 0 9px 0;
+}
+
+#info h2:first-child {
+	background-color:#FF0000;
+}
+
+#menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#menu ul li a {
+	display: block;
+	margin: 8px 22px;
+	background-color: #fbb03b;
+	color: #fff;
+	border-radius: 14px;
+}
+
+#menu li:hover a {
+	color: #ff0;
+	background-color: #00e;
+}
+
+img.dx {
+	float: right;
+}
+
+img.sx {
+	float: left;
+	margin: 3px 10px 3px 0;
+}
+
+img.centro {
+	display: block;
+	margin: 6px auto;
+}
+
+p {
+	margin: 0 0 4px 0;
+}
+
+a {
+	text-decoration: none;
+}
+

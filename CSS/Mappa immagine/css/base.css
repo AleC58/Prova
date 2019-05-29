@@ -1,0 +1,30 @@
+#mappa {
+	background-image: url(../img/MappaGiordania.png);
+	width: 369px;
+	height: 295px;
+	position: relative;
+	margin-left: 300px;
+}
+
+#mappa ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#mappa li {
+	margin: 0;
+	padding: 0;
+}
+
+#amman {
+	position: absolute;
+	top: 118px;
+	left: 102px;
+}
+
+#petra {
+	position: absolute;
+	top: 210px;
+	left: 77px;
+}
