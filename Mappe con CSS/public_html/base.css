@@ -1,0 +1,107 @@
+html, body {
+	font: normal normal 1.2em Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	text-align: center;
+	font: italic bold 2em "Times New Roman", Times, serif;
+	margin: 0 0 10px 0;
+}
+
+p {
+	margin: 0 0 4px 0;
+}
+
+#pagina {
+	width: 1100px;
+	margin: 0 auto;
+	padding: 12px;
+	background-color: #def;
+}
+
+#testata {
+	background-color: #66ffff;
+}
+
+#info {
+	background-color: #99ffcc;
+	float: left;
+	width: 900px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+#nav {
+	background-color: #00ffff;
+	margin-left: 925px;
+	padding: 5px;
+}
+
+#piePag {
+	padding: 5px;
+	background-color: #66ccff;
+	clear: both;
+}
+
+#mappa {
+	background-image: url(img/mappa.png);
+	width: 800px;
+	height: 515px;
+	position: relative;
+	display: block;
+	margin: 5px auto;
+}
+
+#mappa ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#mappa li {
+	margin: 0;
+	padding: 0;
+}
+
+#mappa li a {
+	background-color: #dfc;
+	text-decoration: none;
+	margin: 0;
+	padding: 5px 10px;
+	border-radius: 6px;
+	font: normal bold 1em Arial, Helvetica, sans-serif;
+}
+
+#mappa li a:hover {
+	text-shadow: 1px 1px 4px #f00;
+}
+
+
+#campoDiSotto {
+	position: absolute;
+	top: 70px;
+	left: 490px;
+}
+
+#malgaFedera {
+	position: absolute;
+	top: 255px;
+	left: 420px;
+}
+
+#rocchettaDiPrendera {
+	position: absolute;
+	top: 445px;
+	left: 460px;
+}
+
+.montagna {
+	font-style: italic;
+	color: #d0d;
+}
+
+.luogo {
+	font-weight: bold;
+	color: #f40;
+}
+
