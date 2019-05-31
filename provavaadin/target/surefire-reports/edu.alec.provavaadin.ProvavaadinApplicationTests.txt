@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: edu.alec.provavaadin.ProvavaadinApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.065 s - in edu.alec.provavaadin.ProvavaadinApplicationTests
