@@ -20,12 +20,12 @@ h2 {
 }
 
 p {
-	margin: 0 0 4px 0;
+	margin: 0 0 8px 0;
 }
 
 ul, ol {
-	margin-top: 6px;
-	margin-bottom: 6px;
+	margin-top: 8px;
+	margin-bottom: 8px;
 }
 
 a {
@@ -37,20 +37,35 @@ img {
 	border: none;
 }
 
-img.sx {
+img.imgSx {
 	float: left;
 	margin: 10px 10px 10px 2px;
 }
 
-img.dx {
+img.imgDx {
 	float: right;
 	margin: 10px 2px 10px 10px;
 }
 
-img.centrata {
+img.imgCentrata {
 	display: block;
 	margin: 6px auto 6px auto;
 	text-align: center;
+}
+
+img.imgMini {
+	width: 100px;
+	height: 75px;
+}
+
+img.imgMedia {
+	width: 400px;
+	height: 300px;
+}
+
+img.imgGrande {
+	width: 800px;
+	height: 600px;
 }
 
 a:hover {
