@@ -123,6 +123,10 @@ body#pgIndex #home {
 	cursor: default;
 }
 
+#nav li a {
+	font: normal normal 0.9em Arial, Helvetica, sans-serif;
+}
+
 #mappa {
 	background-image: url(img/mappa.png);
 	width: 800px;
@@ -142,10 +146,6 @@ body#pgIndex #home {
 #mappa li {
 	margin: 0;
 	padding: 0;
-}
-
-#nav li a {
-	font: normal normal 0.9em Arial, Helvetica, sans-serif;
 }
 
 #mappa li a {
