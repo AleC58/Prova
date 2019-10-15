@@ -9,6 +9,21 @@ import java.math.BigDecimal;
 public class Operazione {
     private static int contCodOp = 0;
 
+    //int numConto; //n. di conto sul quale è effettuata l'op.
+    private int numOp;
+    private String data; //data dell'op. nella forma "AAAA-MM-GG"
+    private String descrizione;
+    private long importo;
+    private boolean entrata; //TRUE=entrata;  FALSE=uscita
+
+    public Operazione(String data, String descrizione, long importo, boolean entrata) {
+        this.numOp = contCodOp++;
+        this.data = data;
+        this.descrizione = descrizione;
+        this.importo = importo;
+        this.entrata = entrata;
+    }
+
     public static int getContCodOp() {
         return contCodOp;
     }
@@ -17,21 +32,6 @@ public class Operazione {
         contCodOp = aContCodOp;
     }
     
-    //int numConto; //n. di conto sul quale è effettuata l'op.
-    private int numOp;
-    private String data; //data dell'op. nella forma "AAAA-MM-GG"
-    private String descrizione;
-    private BigDecimal importo;
-    private boolean entrata; //TRUE=entrata;  FALSE=uscita
-
-    public Operazione(String data, String descrizione, BigDecimal importo, boolean entrata) {
-        this.numOp = contCodOp++;
-        this.data = data;
-        this.descrizione = descrizione;
-        this.importo = importo;
-        this.entrata = entrata;
-    }
-
     public boolean isEntrata() {
         return entrata;
     }
@@ -64,11 +64,11 @@ public class Operazione {
         this.descrizione = descrizione;
     }
 
-    public BigDecimal getImporto() {
+    public long getImporto() {
         return importo;
     }
 
-    public void setImporto(BigDecimal importo) {
+    public void setImporto(long importo) {
         this.importo = importo;
     }
 

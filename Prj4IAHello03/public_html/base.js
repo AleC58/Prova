@@ -9,19 +9,22 @@
 
 var txtA;
 var txtB;
+var risultato;
+var btnRisolviEq;
 
 //window.onload = saluta;
 window.onload = function() {
 	txtA = document.getElementById("txtA");
 	txtB = document.getElementById("txtB");
 	risultato = document.getElementById("risultato");
+	btnRisolviEq = document.getElementById("btnRisolviEq");
 	
 	btnRisolviEq.onclick = risolviEq;
 };
 
 function risolviEq() {
-	a = parseInt(txtA.value);
-	b = parseInt(txtB.value);
+	var a = parseInt(txtA.value);
+	var b = parseInt(txtB.value);
 	risultato.innerHTML = risolviEqPrimoGrado(a, b);
 };
 
