@@ -55,7 +55,7 @@ public class Conto {
 		this.operazioni.set(numOp, NewOp);
     }
 
-    public long calcolaSaldo() {
+    public long saldo() {
 		long saldo = 0;
 		for(Operazione op : operazioni) {
 			saldo = op.isEntrata() ? saldo + op.getImporto() : saldo - op.getImporto();
