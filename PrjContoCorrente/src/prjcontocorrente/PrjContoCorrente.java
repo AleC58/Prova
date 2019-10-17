@@ -22,8 +22,13 @@ public class PrjContoCorrente {
 		Operazione op22 = new Operazione("2019-10-15", "C2, op U2", 190, false);
 		Operazione op14 = new Operazione("2019-10-15", "C1, op U4", 600, false);
 		
+		Cliente c1 = new Cliente("Mario", "Rossi");
+		
 		Conto conto1 = new Conto();
 		Conto conto2 = new Conto();
+		c1.setConto(conto1);
+		Cliente c2 = new Cliente("Giuseppe", "Verdi", conto2);
+		Cliente c3 = new Cliente("Marta", "Bianchi");
 		
 		conto1.addOperazione(op11);
 		conto1.addOperazione(op12);
@@ -35,6 +40,9 @@ public class PrjContoCorrente {
 		System.out.println(conto1);
 		System.out.println(conto2);
 		System.out.println("Saldo conto1:" + conto1.saldo());
+		System.out.println("CLIENTE 1\n" + c1);
+		System.out.println("CLIENTE 2\n" + c2);
+		System.out.println("CLIENTE 3\n" + c3);
     }
     
 }
