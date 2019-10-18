@@ -48,7 +48,7 @@ public class Conto {
 
     public void modOperazione(Operazione OrigOp, Operazione NewOp) {
         int numOp = getNumOp(OrigOp);
-		this.operazioni.set(numOp, NewOp);
+		modOperazione(numOp, NewOp);
     }
 
     public void modOperazione(int numOp, Operazione NewOp) {
