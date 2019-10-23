@@ -48,14 +48,14 @@ public class Conto {
 
     public void modOperazione(Operazione OrigOp, Operazione NewOp) {
         int numOp = getNumOp(OrigOp);
-		this.operazioni.set(numOp, NewOp);
+		modOperazione(numOp, NewOp);
     }
 
     public void modOperazione(int numOp, Operazione NewOp) {
 		this.operazioni.set(numOp, NewOp);
     }
 
-    public long calcolaSaldo() {
+    public long saldo() {
 		long saldo = 0;
 		for(Operazione op : operazioni) {
 			saldo = op.isEntrata() ? saldo + op.getImporto() : saldo - op.getImporto();
