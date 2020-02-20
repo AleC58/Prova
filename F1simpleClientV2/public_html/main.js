@@ -1,6 +1,6 @@
 "use strict";
 //alert("QQ");
-var host = "192.168.4.1";
+var host = "192.168.4.170";
 var porta = "8088";
 var urlBase = "http://" + host + ":" + porta;
 var btnTestServizio, risTestServizio; // 1
