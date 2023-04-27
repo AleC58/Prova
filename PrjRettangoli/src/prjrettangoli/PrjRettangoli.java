@@ -27,6 +27,7 @@ public class PrjRettangoli {
 		p.setY(y);
 		System.out.println("p con nuove coord: " + p);
 		System.out.println("i punti 'p' e 'q' sono uguali? " + (p.equals(q) ? "Si" : "No"));
+		System.out.println("i punti 'p' e 'q' sono uguali? " + (p==q ? "Si" : "No"));
 	}
 
 }

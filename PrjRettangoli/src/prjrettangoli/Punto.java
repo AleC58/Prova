@@ -41,8 +41,8 @@ public class Punto {
 		return hash;
 	}
 
-	//@Override
-	public boolean ZZequals(Object obj) {
+	@Override
+	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
 		}
