@@ -40,6 +40,6 @@ public class Cerchio {
 	public String toString() {
 		return "Cerchio{" + "radius=" + radius + ", color=" + color + '}';
 	}
-	
-	
+
+
 }
