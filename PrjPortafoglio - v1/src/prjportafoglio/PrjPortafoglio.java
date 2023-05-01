@@ -11,7 +11,8 @@ public class PrjPortafoglio {
 		p0.inserisci(0.4);
 		System.out.println("P 0,0,0: " + p0);
 		System.out.println("--------------\n");
-		//Monete[] vMonete = {new Monete(0.5555, 1), new Monete(1, 2), new Monete(2, 4)};
+
+		//Monete[] vMonete = {new Monete(0.5, 1), new Monete(1, 2), new Monete(2, 4)};
 		int[] vMonete = {1, 2, 4};
 		PortaMonete p = new PortaMonete(vMonete);
 		System.out.println("P 1,2,4: " + p);
@@ -22,6 +23,7 @@ public class PrjPortafoglio {
 		System.out.println("Valore totale nel portafoglio: " + p.denaro());
 		System.out.println("Quantità di monete per tipo: ");
 		p.denaroPerTipo();
+
 
 		System.out.println("\n\n--------------\nPortafoglio\n");
 		Portafoglio pfd = new Portafoglio();
