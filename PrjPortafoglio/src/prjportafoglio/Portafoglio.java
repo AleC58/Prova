@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class Portafoglio extends PortaMonete {
 
-	//private static double[] TAGLI_DEI_SOLDI = {};
 	public Portafoglio() {
 		//crea un array dei tagli validi, unendo i tagli delle monete e quelli delle banconote
 		double[] tagli = Arrays.copyOf(Soldi.getTAGLI_DELLE_MONETE(), Soldi.getTAGLI_DELLE_MONETE().length + Soldi.getTAGLI_DELLE_BANCONOTE().length);

@@ -33,6 +33,7 @@ public class PrjPortafoglio {
 		System.out.println("pf 1, 2, 4, 1, 2, 3: " + pf);
 		pf.inserisci(0.5, 3);
 		pf.inserisci(10, 2);
+		pf.inserisci(25.0, 99);
 		System.out.println("pf 4, 2, 4, 1, 4, 3: " + pf);
 		System.out.println("Valore totale nel portafoglio: " + pf.denaro());
 		System.out.println("Valore banconote nel portafoglio: " + pf.banconote());

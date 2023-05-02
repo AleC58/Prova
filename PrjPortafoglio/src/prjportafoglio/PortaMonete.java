@@ -80,15 +80,17 @@ public class PortaMonete {
 		return this.getClass().getSimpleName() + "{" + Arrays.toString(soldi) + '}';
 	}
 
-	public void inserisci(double valore) {
-		inserisci(valore, 1);
+	public void inserisci(double taglio) {
+		inserisci(taglio, 1);
 	}
 
 	public void inserisci(double taglio, int qta) {
-		for (int j = 0; j < soldi.length; j++) {
+		boolean inserito = false;
+		for (int j = 0; (j < soldi.length) && !inserito; j++) {
 			//se il taglio degli Monete è valido li inserisco
 			if (Double.compare(taglio, soldi[j].getTaglio()) == 0) {
 				soldi[j].setQta(soldi[j].getQta() + qta);
+				inserito = true;
 			}
 		}
 	}
