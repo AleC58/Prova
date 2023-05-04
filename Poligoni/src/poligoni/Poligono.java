@@ -35,7 +35,7 @@ public abstract class Poligono {
 	public int getNumLati() {
 		return numLati;
 	}
-	
+
 	public double perimetro() {
 		double p = 0;
 		for (double lato : lati) {
@@ -43,7 +43,7 @@ public abstract class Poligono {
 		}
 		return p;
 	}
-	
+
 	public abstract double area();
 
 	@Override
@@ -75,9 +75,9 @@ public abstract class Poligono {
 
 	@Override
 	public String toString() {
-		return "Poligono{" + "nome=" + nome + ", numLati=" + numLati + ", lati=" + Arrays.toString(lati) + '}';
+		return this.getClass().getSimpleName() + "{" + "nome=" + nome + ", numLati=" + numLati + ", lati=" + Arrays.toString(lati) + '}';
 	}
-	
-	
+
+
 
 }
