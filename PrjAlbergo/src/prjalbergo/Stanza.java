@@ -5,7 +5,7 @@ package prjalbergo;
  * @author Alessandro Cazziolato
  */
 public class Stanza {
-	private int numero;
+	private String nomeStanza;
 	private int prezzo;
 	private boolean libera;
 	private double sconto;
@@ -13,25 +13,25 @@ public class Stanza {
 	public Stanza() {
 	}
 
-	public Stanza(int numero, int prezzo, boolean libera) {
-		this.numero = numero;
+	public Stanza(String nomeStanza, int prezzo, boolean libera) {
+		this.nomeStanza = nomeStanza;
 		this.prezzo = prezzo;
 		this.libera = libera;
 	}
 
-	public Stanza(int numero, int prezzo, boolean libera, double sconto) {
-		this.numero = numero;
+	public Stanza(String nomeStanza, int prezzo, boolean libera, double sconto) {
+		this.nomeStanza = nomeStanza;
 		this.prezzo = prezzo;
 		this.libera = libera;
 		this.sconto = sconto;
 	}
 
-	public int getNumero() {
-		return numero;
+	public String getNomeStanza() {
+		return nomeStanza;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setNomeStanza(String nomeStanza) {
+		this.nomeStanza = nomeStanza;
 	}
 
 	public int getPrezzo() {
@@ -60,7 +60,7 @@ public class Stanza {
 
 	@Override
 	public String toString() {
-		return this.getClass().getSimpleName() + "{" + "numero=" + numero + ", prezzo=" + prezzo + ", libera=" + libera + ", sconto=" + sconto + '}';
+		return this.getClass().getSimpleName() + "{" + "nome=" + nomeStanza + ", prezzo=" + prezzo + ", libera=" + libera + ", sconto=" + sconto + '}';
 	}
 
 }

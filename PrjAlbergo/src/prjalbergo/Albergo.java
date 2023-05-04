@@ -1,6 +1,7 @@
 package prjalbergo;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  *
@@ -8,25 +9,25 @@ import java.util.Arrays;
  */
 public class Albergo {
 
-	private String nome;
+	private String nomeAlbergo;
 	private String indirizzo;
 	private int totStanze;
 	private Stanza[] stanza;
 
 	public Albergo() {
-		nome = "Albergo di default";
+		nomeAlbergo = "Albergo di default";
 		indirizzo = "indirizzo di default";
 		totStanze = 5;
 		stanza = new Stanza[totStanze];
-		stanza[0] = new Camera(101, 50, true);
-		stanza[1] = new Camera(102, 50, true);
-		stanza[2] = new Camera(103, 50, true);
-		stanza[3] = new Appartamento(201, 100, true);
-		stanza[4] = new Appartamento(202, 100, true);
+		stanza[0] = new Camera("101", 50, true);
+		stanza[1] = new Camera("102", 50, true);
+		stanza[2] = new Camera("103", 50, true);
+		stanza[3] = new Appartamento("201", 100, true);
+		stanza[4] = new Appartamento("202", 100, true);
 	}
 
 	public Albergo(String nome, String indirizzo, Stanza[] stanza) {
-		this.nome = nome;
+		this.nomeAlbergo = nome;
 		this.indirizzo = indirizzo;
 		this.totStanze = stanza.length;
 		this.stanza = stanza;
@@ -40,12 +41,12 @@ public class Albergo {
 		this.stanza = stanza;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getNomeAlbergo() {
+		return nomeAlbergo;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeAlbergo(String nomeAlbergo) {
+		this.nomeAlbergo = nomeAlbergo;
 	}
 
 	public String getIndirizzo() {
@@ -66,7 +67,7 @@ public class Albergo {
 
 	@Override
 	public String toString() {
-		return this.getClass().getSimpleName() + "{" + "nome=" + nome + ", indirizzo=" + indirizzo + ", totStanze=" + totStanze + ", stanza=" + Arrays.deepToString(stanza) + '}';
+		return this.getClass().getSimpleName() + "{" + "nome=" + nomeAlbergo + ", indirizzo=" + indirizzo + ", totStanze=" + totStanze + ", stanza=" + Arrays.deepToString(stanza) + '}';
 	}
 
 	public void visStanzeLibere() {
@@ -77,26 +78,26 @@ public class Albergo {
 		}
 	}
 
-	public void assegnaStanza(int numStanza) {
+	public void assegnaStanza(String nomeStanza) {
 		for (int j = 0; j < stanza.length; j++) {
-			if (stanza[j].getNumero() == numStanza) {
+			if (stanza[j].getNomeStanza().equals(nomeStanza)) {
 				stanza[j].setLibera(false);
-				System.out.println("stanza " + numStanza + " correttamente assegnata");
+				System.out.println("stanza " + nomeStanza + " correttamente assegnata");
 				return;
 			}
 		}
-		System.out.println("ERRORE: non è stato possibile assegnare la stanza " + numStanza);
+		System.out.println("ERRORE: non è stato possibile assegnare la stanza " + nomeStanza);
 	}
 
-	public void liberaStanza(int numStanza, int numGiorniUso) {
+	public void liberaStanza(String nomeStanza, int numGiorniUso) {
 		for (int j = 0; j < stanza.length; j++) {
-			if (stanza[j].getNumero() == numStanza) {
+			if (stanza[j].getNomeStanza().equals(nomeStanza)) {
 				if (stanza[j].isLibera()) {
-					System.out.println("ERRORE: la stanza " + numStanza + " è già libera");
+					System.out.println("ERRORE: la stanza " + nomeStanza + " è già libera");
 					return;
 				}
 				stanza[j].setLibera(true);
-				System.out.println("stanza " + numStanza + " liberata");
+				System.out.println("stanza " + nomeStanza + " liberata");
 				System.out.println("Costo giornaliero: " + stanza[j].getPrezzo());
 				System.out.println("Giorni di utilizzo: " + numGiorniUso);
 				double costoTotaleScontato = (stanza[j].getPrezzo() * numGiorniUso) * (1 - stanza[j].getSconto());
@@ -104,16 +105,45 @@ public class Albergo {
 				return;
 			}
 		}
-		System.out.println("ERRORE: non è stato possibile liberare la stanza " + numStanza);
+		System.out.println("ERRORE: non è stato possibile liberare la stanza " + nomeStanza);
 	}
 
-	public int ixStanzaDaNumero(int numStanza) {
+	public void creaDaTastiera() {
+		Scanner tastiera = new Scanner(System.in);
+		System.out.println("\n------------\nCreazione di un nuovo albergo");
+		System.out.print("Nome dell'albergo: ");
+		//quando si leggono tipi misti usare solamente nextLine()
+		nomeAlbergo = tastiera.nextLine();
+		System.out.print("Indirizzo dell'albergo: ");
+		indirizzo = tastiera.nextLine();
+		System.out.print("Numero totale di stanze dell'albergo: ");
+		totStanze = Integer.parseInt(tastiera.nextLine());
+		stanza = new Stanza[totStanze];
+		for (int j = 0; j < totStanze; j++) {
+			System.out.println("\n------------\nDati della stanza " + (j + 1) + ": ");
+			System.out.print("Nome: ");
+			String nomeStanza = tastiera.nextLine();
+			System.out.print("Prezzo: ");
+			int prezzo = Integer.parseInt(tastiera.nextLine());
+			System.out.print("Tipo: (C)amera o (A)ppartamento: ");
+			String tipo = tastiera.nextLine();
+			if (tipo.equalsIgnoreCase("C")) {
+				stanza[j] = new Camera(nomeStanza, prezzo, true);
+			} else {
+				stanza[j] = new Appartamento(nomeStanza, prezzo, true);
+			}
+			System.out.println("Stanza " + nomeStanza + " creata");
+		}
+	}
+
+	public int ixStanzaDaNome(String nomeStanza) {
 		for (int j = 0; j < stanza.length; j++) {
-			if (stanza[j].getNumero() == numStanza) {
+			if (stanza[j].getNomeStanza() == nomeStanza) {
 				return j;
 			}
 		}
 		return 0;
 	}
+
 
 }

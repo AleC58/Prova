@@ -10,8 +10,8 @@ public class Camera extends Stanza {
 	public Camera() {
 	}
 
-	public Camera(int numero, int prezzo, boolean libera) {
-		super(numero, prezzo, libera);
+	public Camera(String nomeStanza, int prezzo, boolean libera) {
+		super(nomeStanza, prezzo, libera);
 		this.setSconto(scontoPerCamere);
 	}
 

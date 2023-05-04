@@ -10,8 +10,8 @@ public class Appartamento extends Stanza {
 	public Appartamento() {
 	}
 
-	public Appartamento(int numero, int prezzo, boolean libera) {
-		super(numero, prezzo, libera);
+	public Appartamento(String nomeStanza, int prezzo, boolean libera) {
+		super(nomeStanza, prezzo, libera);
 		this.setSconto(scontoPerAppartamenti);
 	}
 
