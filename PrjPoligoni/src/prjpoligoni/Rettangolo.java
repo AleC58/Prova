@@ -1,4 +1,4 @@
-package poligoni;
+package prjpoligoni;
 
 /**
  *
@@ -6,18 +6,13 @@ package poligoni;
  */
 public class Rettangolo extends Poligono {
 	public Rettangolo(double base, double altezza) {
-		nome = "Rettangolo";
-		lati = new double[4];
-		numLati = lati.length;
-		lati[0] = base;
-		lati[1] = altezza;
-		lati[2] = base;
-		lati[3] = altezza;
+		//double[] z = new double[]{1.0, 1.0, 1.0, 1.0};
+		super(new double[]{base, altezza, base, altezza});
 	}
-	
+
 	@Override
 	public double area() {
 		return lati[0] * lati[1];
 	}
-	
+
 }

@@ -6,7 +6,7 @@ import java.util.Objects;
  *
  * @author Alessandro Cazziolato
  */
-public class Rettangolo {
+public class Rettangolo implements Comparable {
 	private Punto vertInfSx;
 	private Punto vertSupDx;
 
@@ -72,11 +72,6 @@ public class Rettangolo {
 		return 0.0;
 	}
 
-	public boolean isMaggiore(Rettangolo altroRett) {
-		return this.area() >
-	}
-
-
 //Metodi privati
 	private double base() {
 		return 0.0;
@@ -84,5 +79,10 @@ public class Rettangolo {
 
 	private double altezza() {
 		return 0.0;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
 	}
 }
