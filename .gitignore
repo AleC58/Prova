@@ -40,6 +40,7 @@ hs_err_pid*
 /AAAvarie/build/
 /PrjAlbergo/nbproject/private/
 /PrjAlbergo/build/
+<<<<<<< HEAD
 /PrjAlbergo/dist/
 /Poligoni/build/
 /PrjPoligoni/nbproject/private/
@@ -48,3 +49,8 @@ hs_err_pid*
 /PrjPoligoni - Copia/nbproject/private/
 /PrjPoligoniGrafici/build/
 /PrjPoligoniGrafici/nbproject/private/
+=======
+/PrjAlbergo/dist/
+>>>>>>> parent of 39c9aca (Finito PrjPoligoni con classi astratte)
+/PrjComparableEtComparator/nbproject/private/
+/PrjComparableEtComparator/build/

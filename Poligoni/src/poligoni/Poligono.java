@@ -1,27 +1,35 @@
-package prjpoligoni;
+package poligoni;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  *
  * @author alex.cazziolato
  */
 public abstract class Poligono {
+	protected String nome;
 	protected int numLati;
 	protected double[] lati;
 
-	//può essere senza costruttori: NON si possono creare oggetti Poligono!
-	// ma il costruttore può essere richiamato dalle sottoclassi (con super)
-	public Poligono(double[] lati) {
-		numLati = lati.length;
-		this.lati = new double[numLati];
-		for (int j = 0; j< lati.length; j++) {
-			this.lati[j] = lati[j];
-		}
+	public Poligono() {
+		this.nome = "";
+		this.numLati = 0;
+		this.lati = null;
+	}
+
+	public Poligono(String nome, double[] lati) {
+		this.nome = nome;
+		this.numLati = lati.length;
+		this.lati = lati;
 	}
 
 	public double[] getLati() {
 		return lati;
+	}
+
+	public String getNome() {
+		return nome;
 	}
 
 	public int getNumLati() {
@@ -59,12 +67,17 @@ public abstract class Poligono {
 		if (this.numLati != other.numLati) {
 			return false;
 		}
+		if (!Objects.equals(this.nome, other.nome)) {
+			return false;
+		}
 		return Arrays.equals(this.lati, other.lati);
 	}
 
 	@Override
 	public String toString() {
-		return this.getClass().getSimpleName() + "{" + "numLati=" + numLati + ", lati=" + Arrays.toString(lati) + '}';
+		return this.getClass().getSimpleName() + "{" + "nome=" + nome + ", numLati=" + numLati + ", lati=" + Arrays.toString(lati) + '}';
 	}
+
+
 
 }

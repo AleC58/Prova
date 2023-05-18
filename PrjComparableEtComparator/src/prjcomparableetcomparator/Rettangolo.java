@@ -1,4 +1,4 @@
-package prjpoligoni;
+package prjcomparableetcomparator;
 
 /**
  *
