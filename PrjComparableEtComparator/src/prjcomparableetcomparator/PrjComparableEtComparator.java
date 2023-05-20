@@ -14,6 +14,11 @@ public class PrjComparableEtComparator {
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
+		int[] vet = {6, 9, 3, 2, 1, 8, 5};
+		Arrays.sort(vet); //int è già a posto con Comparable
+		System.out.println("Vettore ordinato:");
+		System.out.println(Arrays.toString(vet));
+		System.out.println("\n\n");
 		//Poligono pp = new Poligono();
 		Poligono[] p = new Poligono[6];
 		p[0] = new Quadrato(5.0);
