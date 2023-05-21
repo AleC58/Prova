@@ -1,14 +1,12 @@
-package prjpoligonigrafici;
+package prjpoligoni;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  *
  * @author alex.cazziolato
  */
-public class PrjPoligoniGrafici {
+public class PrjPoligoni {
 
 	/**
 	 * @param args the command line arguments
@@ -65,20 +63,5 @@ public class PrjPoligoniGrafici {
 		}
 		System.out.println("Area totale dei rettangoli: " + totAreaRett);
 
-		q1.disegna();
-		c1.disegna();
-		tr1.zoom();
-
-		//ma i veri vantaggi delle interfacce si capiscono da qua:
-		System.out.println("\n\nArray ordinato per nome poligono:");
-		Arrays.sort(p);
-		for (Poligono pol : p) {
-			System.out.println(pol + "   AREA: " + pol.area() + "   PERIMETRO: " + pol.perimetro());
-		}
-		Collections.sort(a);
-		System.out.println("\n\nArrayList ordinato per nome poligono:");
-		for (Poligono pol : a) {
-			System.out.println(pol + "   AREA: " + pol.area() + "   PERIMETRO: " + pol.perimetro());
-		}
 	}
 }
