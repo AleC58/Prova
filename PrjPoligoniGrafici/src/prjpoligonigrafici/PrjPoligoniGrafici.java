@@ -71,14 +71,14 @@ public class PrjPoligoniGrafici {
 
 		//ma i veri vantaggi delle interfacce si capiscono da qua:
 		System.out.println("\n\nArray ordinato per nome poligono:");
-		Arrays.sort(p);
+		Arrays.sort(p); //metodo sort della classe Arrays
 		for (Poligono pol : p) {
 			System.out.println(pol + "   AREA: " + pol.area() + "   PERIMETRO: " + pol.perimetro());
 		}
-		Collections.sort(a);
+		Collections.sort(a); //metodo sort della classe Collections
 		System.out.println("\n\nArrayList ordinato per nome poligono:");
 		for (Poligono pol : a) {
-			System.out.println(pol + "   AREA: " + pol.area() + "   PERIMETRO: " + pol.perimetro());
+			System.out.println(pol + "   area: " + pol.area() + "   perimetro: " + pol.perimetro());
 		}
 	}
 }
